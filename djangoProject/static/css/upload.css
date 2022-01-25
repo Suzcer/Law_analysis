@@ -1,0 +1,20 @@
+/*隐藏原input*/
+.upload-btn {
+    display: none;
+}
+
+/*美化自定义按钮*/
+.file-input-trigger {
+    padding: 2px 5px;
+    border-radius: 5px;
+    border: 1px solid #3888C7;
+    background-color: #3888C7;
+    outline: none;
+    color: #fff;
+    cursor: pointer;
+}
+
+#result-{
+    font-size: 25px;
+}
+
