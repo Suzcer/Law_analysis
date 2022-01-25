@@ -1,0 +1,16 @@
+{
+  "id": "",
+  "name": "",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "10078469",
+      "name": "法院",
+      "font_class": "fayuan",
+      "unicode": "e651",
+      "unicode_decimal": 58961
+    }
+  ]
+}
