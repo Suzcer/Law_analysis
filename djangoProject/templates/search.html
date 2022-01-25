@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>βcourt-search</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.bootcss.com/bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker.min.css"
+          rel="stylesheet">
+    <link rel="shortcut icon" href="/static/icon/github28.ico">
+    <link rel="stylesheet" href="/static/iconfont/court/iconfont.css">
+    <link rel="stylesheet" href="/static/iconfont/search/iconfont.css">
+    <link rel="stylesheet" href="/static/iconfont/spider/iconfont.css">
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://cdn.bootcss.com/moment.js/2.24.0/moment-with-locales.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js"></script>
+    <!-- 引入样式 -->
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+    <!-- 引入组件库 -->
+    <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+
+</head>
+<body>
+<div class="container">
+    <div class="col-md-12 ">
+
+        <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                            data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#"><span class="iconfont icon-fayuan"></span>裁判文书标注系统</a>
+                </div>
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li><a href=/home/>首页</a></li>
+                        <li class="active"><a href=/search/>搜索 <span class="sr-only">(current)</span></a></li>
+
+                        <li><a href=/upload/>在线分词</a></li>
+                        <li><a href=/demo/>Demo</a></li>
+
+                        <!--
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                               aria-haspopup="true" aria-expanded="false">下拉框 <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">动作1</a></li>
+                                <li><a href="#">动作2</a></li>
+                                <li><a href="#">动作3</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="#">链接1</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="#">链接2</a></li>
+                            </ul>
+                        </li>
+                        -->
+                    </ul>
+                    <!--
+                    <form class="navbar-form navbar-left">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="搜索数据库中裁判文书">
+                        </div>
+                        <button type="submit" class="btn btn-default">搜索</button>
+                    </form>
+                    -->
+
+
+                </div><!-- /.navbar-collapse -->
+            </div><!-- /.container-fluid -->
+        </nav>
+
+        <div class="page-header">
+            <h1>搜索案件 <small>基于爬虫<span class="iconfont icon-pachong"></span></small></h1>
+        </div>
+        <div class="panel panel-default">
+            <!-- 面板开始  -->
+            <div class="panel-heading">
+                <h3 class="panel-title">请选择时间</h3>
+            </div>
+            <div class="panel-body">
+                <form class="navbar-form navbar-left" method="post">
+                    <!--
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="搜索数据库中裁判文书">
+                    </div>
+
+
+                -->
+                    <div class="row form-check-inline">
+                        <div class='col-sm-5'>
+                            <div class="form-group">
+                                <label>起始日期：</label>
+                                <!--指定 date标记-->
+                                <div class='input-group date' id='datetimepicker1'>
+                                    <input type='text' name="datetimepicker1" class="form-control"/>
+                                    <span class="input-group-addon">
+                                    <span class="glyphicon glyphicon-calendar"></span>
+                                </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class='col-sm-5'>
+                            <div class="form-group">
+                                <label>终止日期：</label>
+                                <!--指定 date标记-->
+                                <div class='input-group date' id='datetimepicker2'>
+                                    <input type='text' name="datetimepicker2" class="form-control"/>
+                                    <span class="input-group-addon">
+                                <span class="glyphicon glyphicon-calendar">
+                                </span>
+                                </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <button type="submit" class="btn btn-outline-success">
+                                <span class="iconfont icon-sousuoleimufill"></span>
+                            </button>
+
+                        </div>
+                    </div>
+                </form>
+            </div><!--    面板主体部分           -->
+            <div class="panel-footer">注：因数据有限，可能搜索结果并不完善</div>
+        </div>
+        <div class="panel panel-default">
+            <div class="col-md-12">
+                <table class="table table-striped table-hover">
+                    <!--     样式太丑了，需要换一个样式            -->
+                    <thead>
+                    <tr>
+                        <th>录入编号</th>
+                        <th>审判时间</th>
+                        <th>嫌疑人姓名</th>
+                        <th>出生年月</th>
+                        <th>出生地</th>
+                        <th>民族</th>
+                        <th>性别</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for case in caselist %}
+                        <tr>
+                            <td>{{ case.id }}</td>
+                            <td>{{ case.vtime }}</td>
+                            <td>{{ case.uname }}</td>
+                            <td>{{ case.uage }}</td>
+                            <td>{{ case.uplace }}</td>
+                            <td>{{ case.unation }}</td>
+                            <td>{{ case.ugender }}</td>
+                            <td>
+                                <a href="/detail/?detail_id={{ case.id }}" class="btn btn-primary btn-xs">详情</a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+
+
+    </div>
+    <!--  这个包含了时间
+    <div class='col-sm-6'>
+        <div class="form-group">
+            <label>终止日期：</label>
+            <div class='input-group date' id='datetimepicker2'>
+                <input type='text' class="form-control"/>
+                <span class="input-group-addon">
+            <span class="glyphicon glyphicon-calendar"></span>
+        </span>
+            </div>
+        </div>
+    </div>
+    -->
+
+
+    <!--
+    <div class="container-fluid">
+        <div class="row"></div>
+        <div class="col-md-2">
+
+            <div class="list-group">
+                <a href="#" class="list-group-item active">第一个</a>
+                <a href="#" class="list-group-item">第二个</a>
+                <a href="#" class="list-group-item">第三个</a>
+                <a href="#" class="list-group-item">第四个</a>
+                <a href="#" class="list-group-item">第五个</a>
+            </div>
+
+        </div>
+        <div class="col-md-10">
+
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Panel title</h3>
+                </div>
+                <div class="panel-body">
+
+                </div>
+            </div>
+        </div>
+    </div>
+    -->
+    <footer style="text-align: center">©2022 CZY队 | 法律声明 | 隐私条款</footer>
+</div>
+
+
+<script type="text/javascript">
+    $(function () {
+        $('#datetimepicker1').datetimepicker({
+            format: 'YYYY-MM-DD',
+            locale: moment.locale('zh-cn')
+        });
+        $('#datetimepicker2').datetimepicker({
+            {#format: 'YYYY-MM-DD hh:mm',#}
+            format: 'YYYY-MM-DD',
+            locale: moment.locale('zh-cn')
+        });
+    });
+
+</script>
+</body>
+</html>
+

@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>βcourt-online</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
+    <link rel="shortcut icon" href="/static/icon/github5.ico">
+    <link rel="stylesheet" href="/static/iconfont/download/iconfont.css">
+    <link rel="stylesheet" href="/static/iconfont/saveDB/iconfont.css">
+    <link rel="stylesheet" href="/static/iconfont/save/iconfont.css">
+    <link rel="stylesheet" href="/static/iconfont/defendent/iconfont.css">
+    <link rel="stylesheet" href="/static/iconfont/court/iconfont.css">
+    <link rel="stylesheet" href="/static/iconfont/cloud/iconfont.css">
+    <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+    <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+    <script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+
+
+    <link rel="stylesheet" href="/static/css/upload.css" type="text/css">
+    <link rel="stylesheet" href="/static/element/element.css"/>
+
+
+</head>
+<body>
+<div class="container" id="root">
+    <div class="col-md-12 ">
+        <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                            data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#"><span class="iconfont icon-fayuan"></span>裁判文书标注系统</a>
+                </div>
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li><a href=/home/>首页</a></li>
+                        <li><a href=/search/>搜索</a></li>
+                        <li class="active"><a href=/upload/>在线分词 <span class="sr-only">(current)</span></a></li>
+                        <li><a href=/demo/>Demo</a></li>
+
+                        <!--
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                               aria-haspopup="true" aria-expanded="false">下拉框 <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">动作1</a></li>
+                                <li><a href="#">动作2</a></li>
+                                <li><a href="#">动作3</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="#">链接1</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="#">链接2</a></li>
+                            </ul>
+                        </li>
+                        -->
+                    </ul>
+                    <!--
+                    <form class="navbar-form navbar-left">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="搜索数据库中裁判文书">
+                        </div>
+                        <button type="submit" class="btn btn-default">搜索</button>
+                    </form>
+                    -->
+                    <!--
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                               aria-haspopup="true" aria-expanded="false">保存 <span class="caret"></span></a>
+
+                            <ul class="dropdown-menu">
+                                <li><a href="#">本地保存</a></li>
+                                <li><a href="#">数据库保存</a></li>
+
+                                <li role="separator" class="divider"></li>
+
+                            </ul>
+                        </li>
+                    </ul>
+                    -->
+
+
+                </div><!-- /.navbar-collapse -->
+            </div><!-- /.container-fluid -->
+        </nav>
+
+        <div class="page-header">
+            <h1>在线分词 <small><span class="iconfont icon-cloud-link"></span></small></h1>
+        </div>
+        <!--
+        <ul class="nav nav-pills">
+            <li class="active"><a href=/upload/>上传文件<span class="sr-only">(current)</span></a></li>
+            <li><a href=/online/>文字输入</a></li>
+        </ul>
+        -->
+        <div class="container-fluid">
+            <div class="list-group">
+                <div class="row">
+                    <div class="col-md-2">
+                        <!--
+                        <a href="#" class="list-group-item active">
+                            Cras justo odio
+                        </a>
+                        <a href="#" class="list-group-item">文件上传</a>
+                        <a href="#" class="list-group-item">在线分词</a>
+                        -->
+                        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
+                            <ul class="nav nav-pills">
+                                <li><a href=/upload/>上传文件</a></li>
+                                <li class="active">
+                                    <a href=/textinput/><span class="sr-only">(current)</span>文字输入</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-10">
+
+
+                        <form action="" method="post">
+                            {{ form1.as_p }}
+                            <div class="alert alert-success" role="alert">请输入规范的刑事裁定书.
+                                <div class="col-md-offset-11">
+                                    <button  type="submit" class="btn btn-outline-primary" >
+                                        <span class="glyphicon glyphicon-upload" aria-hidden="true"></span> 提交
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                    <textarea class="form-control" id="devalue" name="textinput"
+                                              rows="20" style="min-width: 90%">{{ 原文 }}</textarea>
+                            </div>
+                        </form>
+
+
+                        <div class="panel panel-default">
+                            <div class="panel-body">
+
+                                <form action="" method="POST">
+                                    {{ form2.as_p }}
+                                    <!-- 选项卡菜单-->
+                                    <ul class="nav navbar-nav navbar-right">
+                                        <li class="dropdown">
+                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                                               aria-haspopup="true" aria-expanded="false">
+                                                <span class="iconfont icon-icon_baocun"></span>保存 <span
+                                                    class="caret"></span></a>
+
+                                            <ul class="dropdown-menu">
+                                                <li>
+                                                    <button type="button" class="btn btn-secondary btn-block save-btn"
+                                                            name="savelocally" @click='savelocally'>
+                                                        <span class="iconfont icon-xiazai"></span>下载
+                                                    </button>
+                                                    <!-- 暂时对type进行修改，仅仅是发送ajax请求即可，不需要再操作一次了 -->
+                                                </li>
+                                                <li role="separator" class="divider"></li>
+                                                <li>
+                                                    <button type="submit" class="btn btn-outline-secondary btn-block"
+                                                            name="saveDB">
+                                                        <span class="iconfont icon-mysql"></span>系统保存
+                                                    </button>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                    <br/>
+                                    <br/>
+
+                                    <!--
+                                    <input type="submit" value="提交" name="save"/>
+                                    -->
+                                    <div class="jumbotron">
+                                        <ul id="myTab" class="nav nav-pills" role="tablist">
+                                            <li class="active"><a href="#criminal" role="tab"
+                                                                  data-toggle="pill"><span
+                                                    class="iconfont icon-anonymous"></span>嫌疑人信息</a></li>
+                                            <li><a href="#adj" role="tab" data-toggle="pill">形容词</a></li>
+                                            <li><a href="#verb" role="tab" data-toggle="pill">动词</a></li>
+                                            <li><a href="#cause" role="tab" data-toggle="pill">案由</a></li>
+                                            <li><a href="#court" role="tab" data-toggle="pill">法院</a></li>
+                                            <li><a href="#date" role="tab" data-toggle="pill">审判日期</a></li>
+                                            <li><a href="#victim" role="tab" data-toggle="pill">被害人</a></li>
+
+                                        </ul>
+                                        <!-- 选项卡面板 -->
+                                        <div id="myTabContent" class="tab-content">
+                                            <div class="tab-pane fade in active" id="criminal">
+                                                <input type="checkbox" name="defendent" checked="checked" id="defendent"
+                                                       value={{ 犯罪嫌疑人 }}/>
+                                                <span>{{ 犯罪嫌疑人 }}</span><br/>
+                                                <input type="checkbox" name="nation" checked="checked" id="nation"
+                                                       value={{ 民族 }}/>
+                                                <span>{{ 民族 }}</span><br/>
+                                                <input type="checkbox" name="gender" checked="checked" id="gender"
+                                                       value={{ 性别 }}/>
+                                                <span>{{ 性别 }}</span><br/>
+                                                <input type="checkbox" name="place" checked="checked" id="place"
+                                                       value={{ 出生地 }}/>
+                                                <span>{{ 出生地 }}</span><br/>
+                                                <input type="checkbox" name="time" checked="checked" id="time"
+                                                       value={{ 出生年月 }}/>
+                                                <span>{{ 出生年月 }}</span>
+                                            </div>
+                                            <div class="tab-pane fade" id="adj">
+                                                {% for adjtemp in 形容词 %}
+                                                    <input type="checkbox" name="adjs" checked="checked" id="adjs"
+                                                           value={{ adjtemp }}/>
+                                                    {{ adjtemp }}<br/>
+                                                {% endfor %}
+                                            </div>
+                                            <div class="tab-pane fade" id="verb">
+                                                {% for verbtemp in 动词 %}
+                                                    <input type="checkbox" name="verbs" checked="checked" id="verbs"
+                                                           value={{ verbtemp }}/>
+                                                    {{ verbtemp }}<br/>
+                                                {% endfor %}
+
+                                            </div>
+                                            <div class="tab-pane fade" id="cause">
+                                                {% for causetemp in 案由 %}
+                                                    <input type="checkbox" name="causes" checked="checked" id="causes"
+                                                           value={{ causetemp }}/>
+                                                    {{ causetemp }}<br/>
+                                                {% endfor %}
+                                            </div>
+                                            <div class="tab-pane fade" id="court">
+                                                {% for courttemp in 法院 %}
+                                                    <input type="checkbox" name="courts" checked="checked" id="courts"
+                                                           value={{ courttemp }}/>
+                                                    {{ courttemp }}<br/>
+                                                {% endfor %}
+                                            </div>
+                                            <div class="tab-pane fade" id="victim">
+                                                {% for victimtemp in 被害人 %}
+                                                    <input type="checkbox" name="victims" checked="checked" id="victims"
+                                                           value={{ victimtemp }}/>
+                                                    {{ victimtemp }}<br/>
+                                                {% endfor %}
+                                            </div>
+
+                                            <div class="tab-pane fade" id="date">
+                                                <input type="checkbox" name="courttime" checked="checked" id="courttime"
+                                                       value={{ 审判时间 }}/>
+                                                {{ 审判时间 }}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!--     可以参考https://convertio.co/zh/                -->
+
+
+        <!--
+        <div class="col-md-10">
+
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Panel title</h3>
+                </div>
+                <div class="panel-body">
+
+                </div>
+            </div>
+        </div>
+        -->
+
+    </div>
+    <footer style="text-align: center">©2022 CZY队 | 法律声明 | 隐私条款</footer>
+</div>
+
+<!-- 先引入jquery -->
+{#<script src="/static/jquery-1.7.2/jquery-1.7.2/jquery.min.js"></script>#}
+<!--  在head已经引入了一遍了，所以不需要再引入了吧 -->
+<!--    原来引入的是fileSaver            -->
+<script src="/static/FileSaver.js-master/FileSaver.js-master/dist/FileSaver.min.js"></script>
+<script src="/static/js/vue.js"></script>
+<script src="/static/element/element.js"></script>
+<!-- 引入样式 -->
+<link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+<!-- 引入组件库 -->
+<script src="https://unpkg.com/element-ui/lib/index.js"></script>
+<script>
+    $(function () {
+        // 点击自定义的span标签触发input标签的点击事件
+        $('.file-input-trigger').on('click', function () {
+            $('.upload-btn').trigger('click')
+        })
+        // 文件改变时 将文件名称显示到p元素中
+        $('.upload-btn').on('change', function (event) {
+            let fileName = '已选文件：' + event.target.files[0].name
+            $('.file-name').text(fileName)
+        })
+    })
+
+
+</script>
+<script>
+    const app = new Vue({
+            el: '#root',
+            data() {
+                return {}
+            },
+            methods: {
+                /**
+                 sleep(time) {
+                    let startTime = new Date().getTime() + parseInt(time, 10);
+                    while (new Date().getTime() < startTime) {
+                    }
+                },
+                 **/
+                /**
+                 handleClick() {
+                    {#this.sleep(10000);#}
+                    alert("本地存储按钮")
+                    let data;
+                    $.ajax({
+                        url: '/static/after.json',
+                        type: "get",
+                        //data:{action:'js_type',tid:{$tid},cid:{$cid},ccid:{$ccid}},
+                        async: false,
+                        success: function (jsondata) {
+                            data = jsondata;
+                        },
+                        error: function () {
+                            console.log("数据读取错误")
+                        }
+                    });
+
+                     const data = {
+                    犯罪嫌疑人: "",
+                    性别: ""
+                }
+                     $.getJSON('D:\\PycharmProjects\\djangoProject\\after.json', function (jsondata) {
+                    alert(jsondata.犯罪嫌疑人)
+                    data.犯罪嫌疑人 = jsondata.犯罪嫌疑人
+                    data.性别 = jsondata.性别
+                })
+
+                    const blob = new Blob([JSON.stringify(data)], {type: 'text/json'});
+                    saveAs(blob, "save.json");
+                },**/
+                savelocally() {
+                    let temp犯罪嫌疑人 = $('#defendent').val().substring(0, $('#defendent').val().length - 1);
+                    let temp性别 = $('#gender').val().substring(0, $('#gender').val().length - 1);
+                    let temp出生地 = $('#place').val().substring(0, $('#place').val().length - 1);
+                    let temp出生年月 = $('#time').val().substring(0, $('#time').val().length - 1);
+                    let temp民族 = $('#nation').val().substring(0, $('#nation').val().length - 1);
+                    let temp审判时间 = $('#courttime').val().substring(0, $('#courttime').val().length - 1);
+
+                    let temp形容词 = new Array();
+                    $('#adj').children("#adjs").each(function (key, value) {
+                        temp形容词[key] = $(value).val()
+                    });
+                    let temp动词 = new Array();
+                    $('#verb').children("#verbs").each(function (key, value) {
+                        temp动词[key] = $(value).val().substring(0, $(value).val().length - 1)
+                    });
+                    let temp案由 = new Array();
+                    $('#cause').children("#causes").each(function (key, value) {
+                        temp案由[key] = $(value).val().substring(0, $(value).val().length - 1)
+                    });
+                    let temp法院 = new Array();
+                    $('#court').children("#courts").each(function (key, value) {
+                        temp法院[key] = $(value).val().substring(0, $(value).val().length - 1)
+                    });
+                    let temp被害人 = new Array();
+                    $('#victim').children("#victims").each(function (key, value) {
+                        temp被害人[key] = $(value).val().substring(0, $(value).val().length - 1)
+                    });
+                    let datatxt = $('#devalue').val().replace(new RegExp("\n", "gm"), "\r\n");
+
+
+                    data = {
+                        "犯罪嫌疑人": temp犯罪嫌疑人,
+                        "性别": temp性别,
+                        "出生地": temp出生地,
+                        "出生年月": temp出生年月,
+                        "民族": temp民族,
+                        "形容词": temp形容词,
+                        "动词": temp动词,
+                        "案由": temp案由,
+                        "法院": temp法院,
+                        "审判时间": temp审判时间,
+                        "被害人": temp被害人
+                    }
+                    const blob = new Blob([JSON.stringify(data)], {type: 'text/json'});
+                    saveAs(blob, "save.json");
+                    let blobdocx = new Blob([datatxt], {type: "text/plain;charset=utf-8"});
+                    saveAs(blobdocx, "exportAsdocx.docx");
+                    let blobtxt = new Blob([datatxt], {type: "text/plain;charset=utf-8"});
+                    saveAs(blobtxt, "exportAstxt.txt");
+                },
+                inputupload() {
+                    $.ajax({
+                        url: "",
+                        type: "POST",
+                        data: {
+                            "原文": $('#devalue').val()
+                        },
+                        success: function () {
+                            console.log("成功了");
+                        }
+                    })
+                }
+
+
+                /**
+                 deal() {
+                    alert("保存按钮")
+                    $.ajax({
+                        url: "",
+                        type: "POST",
+                        data: {
+                            "犯罪嫌疑人": $('#defendent').val(),
+                            "性别":$('#gender').val(),
+                            },
+                        success: function () {
+                            console.log("成功了");
+                        }
+                    })
+                }**/
+
+            }
+        })
+    ;
+</script><!--   Vue-->
+
+</body>
+</html>

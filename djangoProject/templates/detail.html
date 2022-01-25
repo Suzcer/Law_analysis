@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>βcourt-detail</title>
+    <!--引入 element-ui 的样式-->
+    <link rel="stylesheet" type="text/css" href="/static/element/element.css">
+    <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
+    <link rel="shortcut icon" href="/static/icon/github16.ico">
+    <link rel="stylesheet" href="/static/iconfont/court/iconfont.css">
+    <!-- 必须先引入vue  后使用element-ui -->
+    <script src="/static/js/vue.js"></script>
+    <!-- 引入element 的组件库-->
+    <script src="/static/element/element.js"></script>
+    <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+    <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+
+    <script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
+    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+    <script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container">
+    <div class="col-md-12">
+        <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                            data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#"><span class="iconfont icon-fayuan"></span>裁判文书标注系统</a>
+                </div>
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li><a href=/home/>首页 </a></li>
+                        <li><a href=/search/>搜索</a></li>
+                        <li><a href=/upload/>在线分词</a></li>
+                        <li><a href=/demo/>Demo</a></li>
+
+                        <!--
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                               aria-haspopup="true" aria-expanded="false">下拉框 <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">动作1</a></li>
+                                <li><a href="#">动作2</a></li>
+                                <li><a href="#">动作3</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="#">链接1</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="#">链接2</a></li>
+                            </ul>
+                        </li>
+                        -->
+                    </ul>
+                    <!--
+                    <form class="navbar-form navbar-left">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="搜索数据库中裁判文书">
+                        </div>
+                        <button type="submit" class="btn btn-default">搜索</button>
+                    </form>
+                    -->
+
+
+                </div><!-- /.navbar-collapse -->
+            </div><!-- /.container-fluid -->
+        </nav>
+        <div class="panel panel-primary">
+            <!-- Default panel contents -->
+            <div class="panel-heading">详细数据</div>
+            <div class="panel-body">
+                <div class="jumbotron">
+                    <p>注：此数据已被添加至系统中</p>
+                </div>
+                <p><textarea class="form-control" id="devalue" name="textinput" rows="20"
+                             style="min-width: 90%">{{ text }}</textarea></p>
+
+
+
+
+                <!--        实在是太丑了                       -->
+{#                <div class="page-sidebar">#}
+{#                    <ul>#}
+{#                        <li><a>Item1</a></li>#}
+{#                        <li><a>Item2</a></li>#}
+{#                    </ul>#}
+{#                </div>#}
+                <h4 class="page-header"></h4>
+                动词
+                <ul class="list-group">
+                    {% for verb in verbs %}
+                        <li class="list-group-item el-col-lg-3">{{ verb }}</li>
+                    {% endfor %}
+                </ul>
+                <ul class="nav nav-list">
+                    <li class="divider"></li>
+                </ul>
+                <h4 class="page-header"></h4>
+                形容词
+                <ul class="list-group">
+                    {% for adj in adjs %}
+                        <li class="list-group-item el-col-lg-3">{{ adj }}</li>
+                    {% endfor %}
+                </ul>
+                <ul class="nav nav-list">
+                    <li class="divider"></li>
+                </ul>
+                <h4 class="page-header"></h4>
+                案由
+                <ul class="list-group">
+                    {% for cause in causes %}
+                        <li class="list-group-item el-col-lg-3">{{ cause }}</li>
+                    {% endfor %}
+                </ul>
+                <ul class="nav nav-list">
+                    <li class="divider"></li>
+                </ul>
+                <h4 class="page-header"></h4>
+                法院
+                <ul class="list-group">
+                    {% for court in courts %}
+                        <li class="list-group-item el-col-lg-3">{{ court }}</li>
+                    {% endfor %}
+                </ul>
+
+                <!--  前端学艺不精，不知道如何弄出好看的属性展示
+                <div class="container">
+                    <h2>黑色背景表格</h2>
+                    <p>.table-dark 类可以为表格添加黑色背景：</p>
+
+                    <table class="el-table table-dark">
+                        <thead>
+                        <tr>
+                            <th>形容词</th>
+                            <th>动词</th>
+                            <th>法院</th>
+                            <th>案由</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+
+                        </tr>
+
+                        </tbody>
+                    </table>
+
+                </div>-->
+            </div>
+        </div>
+    </div>
+<footer style="text-align: center">©2022 CZY队 | 法律声明 | 隐私条款</footer>
+</div>
+
+
+</body>
+</html>

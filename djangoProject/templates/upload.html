@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>βcourt-online</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
+    <link rel="shortcut icon" href="/static/icon/github10.ico">
+    <link rel="stylesheet" href="/static/iconfont/add_file/iconfont.css">
+    <link rel="stylesheet" href="/static/iconfont/upload/iconfont.css">
+    <link rel="stylesheet" href="/static/iconfont/download/iconfont.css">
+    <link rel="stylesheet" href="/static/iconfont/saveDB/iconfont.css">
+    <link rel="stylesheet" href="/static/iconfont/save/iconfont.css">
+    <link rel="stylesheet" href="/static/iconfont/defendent/iconfont.css">
+    <link rel="stylesheet" href="/static/iconfont/court/iconfont.css">
+    <link rel="stylesheet" href="/static/iconfont/cloud/iconfont.css">
+    <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+    <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+    <script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="/static/css/upload.css" type="text/css">
+    <link rel="stylesheet" href="/static/element/element.css"/>
+    <link rel="stylesheet" href="/static/css/todos.css">
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+<body class="col-md-offset-0">
+<div class="container " id="root">
+    <div class="col-md-12 ">
+        <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                            data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#"><span class="iconfont icon-fayuan"></span>裁判文书标注系统</a>
+                </div>
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li><a href=/home/>首页</a></li>
+                        <li><a href=/search/>搜索</a></li>
+                        <li class="active"><a href=/upload/>在线分词 <span class="sr-only">(current)</span></a></li>
+                        <li><a href=/demo/>Demo</a></li>
+
+                        <!--
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                               aria-haspopup="true" aria-expanded="false">下拉框 <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">动作1</a></li>
+                                <li><a href="#">动作2</a></li>
+                                <li><a href="#">动作3</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="#">链接1</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="#">链接2</a></li>
+                            </ul>
+                        </li>
+                        -->
+                    </ul>
+                    <!--
+                    <form class="navbar-form navbar-left">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="搜索数据库中裁判文书">
+                        </div>
+                        <button type="submit" class="btn btn-default">搜索</button>
+                    </form>
+                    -->
+                    <!--
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                               aria-haspopup="true" aria-expanded="false">保存 <span class="caret"></span></a>
+
+                            <ul class="dropdown-menu">
+                                <li><a href="#">本地保存</a></li>
+                                <li><a href="#">数据库保存</a></li>
+
+                                <li role="separator" class="divider"></li>
+
+                            </ul>
+                        </li>
+                    </ul>
+                    -->
+
+
+                </div><!-- /.navbar-collapse -->
+            </div><!-- /.container-fluid -->
+        </nav>
+
+        <div class="page-header">
+            <h1>在线分词 <small><span class="iconfont icon-cloud-link"></span></small></h1>
+        </div>
+        <!--
+        <ul class="nav nav-pills">
+            <li class="active"><a href=/upload/>上传文件<span class="sr-only">(current)</span></a></li>
+            <li><a href=/online/>文字输入</a></li>
+        </ul>
+        -->
+        <div class="container-fluid">
+            <div class="list-group">
+                <div class="row">
+                    <div class="col-md-2">
+                        <!--
+                        <a href="#" class="list-group-item active">
+                            Cras justo odio
+                        </a>
+                        <a href="#" class="list-group-item">文件上传</a>
+                        <a href="#" class="list-group-item">在线分词</a>
+                        -->
+
+                        <ul class="nav nav-pills">
+                            <li class="active"><a href=/upload/ >上传文件<span class="sr-only">(current)</span></a></li>
+                            <li><a href=/textinput/>文字输入</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-10">
+
+
+                        <div class="jumbotron">
+
+                            <form action="" method="post" enctype="multipart/form-data">
+                                {{ form1.as_p }}
+                                <div style="text-align: center">
+                                    <input type="file" class="upload-btn" style="display: none" name="file">
+                                    {#                                    <button type="button" class="btn btn-primary btn-lg file-input-trigger"#}
+                                    {#                                            name="file">#}
+                                    {#                                        选择文件#}
+                                    {#                                    </button>#}
+
+                                    <button type="button" class="btn btn-outline-success btn-lg"
+                                            id="file-input-trigger">
+
+                                        <span class="iconfont icon-add_file"></span>
+                                        选择文件
+                                    </button>
+
+                                    {#                                    <input type="submit" name="fileupload" id="submit">#}
+                                    <button class="btn btn-outline-success btn-lg " type="submit" name="fileupload"
+                                            id="submit">
+                                        <span class="iconfont icon-shangchuan"></span>上传
+                                    </button>
+
+                                    {#                                    <el-button circle  type="success" ><span#}
+                                    {#                                            class="glyphicon glyphicon-upload " aria-hidden="true"#}
+                                    {#                                            type="text"></span></el-button>#}
+
+
+                                    <p class="file-name"></p>
+                                </div>
+                            </form>
+                        </div>
+
+
+                        <div class="panel panel-info">
+
+                            <div class="panel-heading" id="result-">分词结果</div>
+
+                            <div class="panel-body">
+
+
+                                <div id="casetext">
+                                    <textarea class="form-control" id="devalue" name="textinput" rows="20"
+                                              style="min-width: 90%">{{ 原文 }}</textarea>
+                                    <!--<p style="word-wrap: break-word">{{ 原文 }}</p>-->
+                                </div>
+                                <div class="panel-body">
+                                    <form action="" method="POST" onkeydown="if(event.keyCode===13)return false;">
+                                        {{ form2.as_p }}
+                                        <!-- 选项卡菜单-->
+                                        <ul class="nav navbar-nav navbar-right">
+                                            <li class="dropdown">
+                                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                                                   aria-haspopup="true" aria-expanded="false"><span
+                                                        class="iconfont icon-icon_baocun"></span>保存
+                                                    <span class="caret"></span></a>
+
+                                                <ul class="dropdown-menu">
+                                                    <li>
+                                                        <button type="button"
+                                                                class="btn btn-secondary btn-block save-btn"
+                                                                name="savelocally" @click='savelocally'>
+                                                            <span class="iconfont icon-xiazai"></span>下载
+                                                        </button>
+                                                        <!-- 暂时对type进行修改，仅仅是发送ajax请求即可，不需要再操作一次了 -->
+                                                    </li>
+                                                    <li role="separator" class="divider"></li>
+                                                    <li>
+                                                        <button type="submit"
+                                                                class="btn btn-outline-secondary btn-block"
+                                                                name="saveDB" @click="postAdd"><span
+                                                                class="iconfont icon-mysql"></span>系统保存
+                                                        </button>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                        <br/>
+                                        <br/>
+                                        <br/>
+
+                                        <!--
+                                        <input type="submit" value="提交" name="save"/>
+                                        -->
+                                        <div class="jumbotron">
+                                            <ul id="myTab" class="nav nav-pills" role="tablist">
+                                                <li class="active"><a href="#criminal" role="tab"
+                                                                      data-toggle="pill">
+                                                    <span class="iconfont icon-anonymous"></span>嫌疑人信息</a></li>
+                                                <li><a href="#adj" role="tab" data-toggle="pill">形容词</a></li>
+                                                <li><a href="#verb" role="tab" data-toggle="pill">动词</a></li>
+                                                <li><a href="#cause" role="tab" data-toggle="pill">案由</a></li>
+                                                <li><a href="#court" role="tab" data-toggle="pill">法院</a></li>
+                                                <li><a href="#date" role="tab" data-toggle="pill">审判日期</a></li>
+                                                <li><a href="#victim" role="tab" data-toggle="pill">被害人</a></li>
+
+                                            </ul>
+                                            <!-- 选项卡面板 -->
+                                            <div id="myTabContent" class="tab-content">
+                                                <div class="tab-pane fade in active" id="criminal">
+                                                    <input type="checkbox" name="defendent" checked="checked"
+                                                           id="defendent"
+                                                           value={{ 犯罪嫌疑人 }}/>
+                                                    <span>{{ 犯罪嫌疑人 }}</span><br/>
+                                                    <input type="checkbox" name="nation" checked="checked" id="nation"
+                                                           value={{ 民族 }}/>
+                                                    <span>{{ 民族 }}</span><br/>
+                                                    <input type="checkbox" name="gender" checked="checked" id="gender"
+                                                           value={{ 性别 }}/>
+                                                    <span>{{ 性别 }}</span><br/>
+                                                    <input type="checkbox" name="place" checked="checked" id="place"
+                                                           value={{ 出生地 }}/>
+                                                    <span>{{ 出生地 }}</span><br/>
+                                                    <input type="checkbox" name="time" checked="checked" id="time"
+                                                           value={{ 出生年月 }}/>
+                                                    <span>{{ 出生年月 }}</span>
+                                                </div>
+                                                <div class="tab-pane fade" id="adj">
+                                                    {% for adjtemp in 形容词 %}
+                                                        <input type="checkbox" name="adjs" checked="checked" id="adjs"
+                                                               value={{ adjtemp }}/>
+                                                        {{ adjtemp }}<br/>
+                                                    {% endfor %}
+                                                    <div id="Addadj">
+                                                        <!-- 新增 -->
+                                                        <!-- 1生成列表结构v-for
+                                                        2获取用户输入v-model
+                                                        3回车新增数据v-on enter添加数据 -->
+                                                        <!-- 删除 -->
+                                                        <!-- 1点击删除指定内容v-on splice -->
+                                                        <!-- 统计 -->
+                                                        <!-- 统计信息个数v-text length -->
+                                                        <!-- 清除 -->
+                                                        <!-- 点击清除所有信息清空数组 -->
+                                                        <!-- 隐藏 -->
+                                                        <!-- 没有数据隐藏元素v-show v-if -->
+                                                        <!-- 主体区域 -->
+                                                        <section>
+                                                            <!-- 输入框 -->
+                                                            <header class="header">
+                                                                <input v-model="inputValue" autofocus="autofocus"
+                                                                       autocomplete="off"
+                                                                       placeholder="请输入形容词" class="new-todo"
+                                                                       @keyup.enter="adjadd" id="placeholder"
+                                                                       name="Add形容词">
+
+                                                            </header>
+                                                            <!-- 列表区域 -->
+                                                            <section class="main">
+                                                                <ul class="todo-list">
+                                                                    <li class="todo" v-for="(item,index) in adjlist"
+                                                                        :key="item.index">
+                                                                        <div class="view">
+                                                                            {% verbatim myblock %}<!--
+                                                                                  因为vue的插值表达式和django的产生冲突
+                                                                                --><!--
+                                                                                <span class="index">{{ index }}</span>
+                                                                                -->
+                                                                                <label>{{ item }}</label>
+                                                                            {% endverbatim myblock %}
+                                                                            <button class="destroy"
+                                                                                    @click="adjremove(index)"></button>
+                                                                        </div>
+                                                                    </li>
+                                                                </ul>
+                                                            </section>
+                                                            <!-- 统计和清空 -->
+                                                            <footer class="footer">
+                                                        <span class="todo-count" v-show="adjlist.length!=0">
+                                                            <strong>{{ adjlist.length }}</strong> 请注意添加的是形容词.
+                                                        </span>
+                                                                {#                                                                <button v-show="adjlist.length!=0" class="clear-completed"#}
+                                                                {#                                                                        @click="clear">#}
+                                                                {#                                                                    Clear#}
+                                                                {#                                                                </button>#}<!--  暂时先关掉-->
+                                                            </footer>
+                                                        </section>
+                                                        <!-- 底部 -->
+                                                        <footer class="info">
+                                                        </footer>
+                                                    </div>
+                                                </div>
+                                                <div class="tab-pane fade" id="verb">
+                                                    {% for verbtemp in 动词 %}
+                                                        <input type="checkbox" name="verbs" checked="checked" id="verbs"
+                                                               value={{ verbtemp }}/>
+                                                        {{ verbtemp }}<br/>
+                                                    {% endfor %}
+                                                    <div id="Addverb">
+                                                        <!-- 新增 -->
+                                                        <!-- 1生成列表结构v-for
+                                                        2获取用户输入v-model
+                                                        3回车新增数据v-on enter添加数据 -->
+                                                        <!-- 删除 -->
+                                                        <!-- 1点击删除指定内容v-on splice -->
+                                                        <!-- 统计 -->
+                                                        <!-- 统计信息个数v-text length -->
+                                                        <!-- 清除 -->
+                                                        <!-- 点击清除所有信息清空数组 -->
+                                                        <!-- 隐藏 -->
+                                                        <!-- 没有数据隐藏元素v-show v-if -->
+                                                        <!-- 主体区域 -->
+                                                        <section>
+                                                            <!-- 输入框 -->
+                                                            <header class="header">
+                                                                <input v-model="inputValue" autofocus="autofocus"
+                                                                       autocomplete="off"
+                                                                       placeholder="请输入动词" class="new-todo"
+                                                                       @keyup.enter="verbadd" id="placeholder"
+                                                                       name="todos">
+
+                                                            </header>
+                                                            <!-- 列表区域 -->
+                                                            <section class="main">
+                                                                <ul class="todo-list">
+                                                                    <li class="todo" v-for="(item,index) in verblist"
+                                                                        :key="item.index">
+                                                                        <div class="view">
+                                                                            {% verbatim myblock %}<!--
+                                                                                  因为vue的插值表达式和django的产生冲突
+                                                                                --><!--
+                                                                                <span class="index">{{ index }}</span>
+                                                                                -->
+                                                                                <label>{{ item }}</label>
+                                                                            {% endverbatim myblock %}
+                                                                            <button class="destroy"
+                                                                                    @click="verbremove(index)"></button>
+                                                                        </div>
+                                                                    </li>
+                                                                </ul>
+                                                            </section>
+                                                            <!-- 统计和清空 -->
+                                                            <footer class="footer">
+                                                        <span class="todo-count" v-show="verblist.length!=0">
+                                                            <strong>{{ verblist.length }}</strong> 请注意添加的是动词.
+                                                        </span>
+                                                                {#                                                                <button v-show="adjlist.length!=0" class="clear-completed"#}
+                                                                {#                                                                        @click="clear">#}
+                                                                {#                                                                    Clear#}
+                                                                {#                                                                </button>#}<!--  暂时先关掉-->
+                                                            </footer>
+                                                        </section>
+                                                        <!-- 底部 -->
+                                                        <footer class="info">
+                                                        </footer>
+                                                    </div>
+                                                </div>
+                                                <div class="tab-pane fade" id="cause">
+                                                    {% for causetemp in 案由 %}
+                                                        <input type="checkbox" name="causes" checked="checked"
+                                                               id="causes"
+                                                               value={{ causetemp }}/>
+                                                        {{ causetemp }}<br/>
+                                                    {% endfor %}
+                                                    <div id="Addcause">
+                                                        <!-- 新增 -->
+                                                        <!-- 1生成列表结构v-for
+                                                        2获取用户输入v-model
+                                                        3回车新增数据v-on enter添加数据 -->
+                                                        <!-- 删除 -->
+                                                        <!-- 1点击删除指定内容v-on splice -->
+                                                        <!-- 统计 -->
+                                                        <!-- 统计信息个数v-text length -->
+                                                        <!-- 清除 -->
+                                                        <!-- 点击清除所有信息清空数组 -->
+                                                        <!-- 隐藏 -->
+                                                        <!-- 没有数据隐藏元素v-show v-if -->
+                                                        <!-- 主体区域 -->
+                                                        <section>
+                                                            <!-- 输入框 -->
+                                                            <header class="header">
+                                                                <input v-model="inputValue" autofocus="autofocus"
+                                                                       autocomplete="off"
+                                                                       placeholder="请输入案由" class="new-todo"
+                                                                       @keyup.enter="causeadd" id="placeholder"
+                                                                       name="todos">
+
+                                                            </header>
+                                                            <!-- 列表区域 -->
+                                                            <section class="main">
+                                                                <ul class="todo-list">
+                                                                    <li class="todo" v-for="(item,index) in causelist"
+                                                                        :key="item.index">
+                                                                        <div class="view">
+                                                                            {% verbatim myblock %}<!--
+                                                                                  因为vue的插值表达式和django的产生冲突
+                                                                                --><!--
+                                                                                <span class="index">{{ index }}</span>
+                                                                                -->
+                                                                                <label>{{ item }}</label>
+                                                                            {% endverbatim myblock %}
+                                                                            <button class="destroy"
+                                                                                    @click="causeremove(index)"></button>
+                                                                        </div>
+                                                                    </li>
+                                                                </ul>
+                                                            </section>
+                                                            <!-- 统计和清空 -->
+                                                            <footer class="footer">
+                                                        <span class="todo-count" v-show="causelist.length!=0">
+                                                            <strong>{{ causelist.length }}</strong> 请注意添加的是案由.
+                                                        </span>
+                                                                {#                                                                <button v-show="adjlist.length!=0" class="clear-completed"#}
+                                                                {#                                                                        @click="clear">#}
+                                                                {#                                                                    Clear#}
+                                                                {#                                                                </button>#}<!--  暂时先关掉-->
+                                                            </footer>
+                                                        </section>
+                                                        <!-- 底部 -->
+                                                        <footer class="info">
+                                                        </footer>
+                                                    </div>
+                                                </div>
+                                                <div class="tab-pane fade" id="court">
+                                                    {% for courttemp in 法院 %}
+                                                        <input type="checkbox" name="courts" checked="checked"
+                                                               id="courts"
+                                                               value={{ courttemp }}/>
+                                                        {{ courttemp }}<br/>
+                                                    {% endfor %}
+                                                    <div id="Addcourt">
+                                                        <!-- 新增 -->
+                                                        <!-- 1生成列表结构v-for
+                                                        2获取用户输入v-model
+                                                        3回车新增数据v-on enter添加数据 -->
+                                                        <!-- 删除 -->
+                                                        <!-- 1点击删除指定内容v-on splice -->
+                                                        <!-- 统计 -->
+                                                        <!-- 统计信息个数v-text length -->
+                                                        <!-- 清除 -->
+                                                        <!-- 点击清除所有信息清空数组 -->
+                                                        <!-- 隐藏 -->
+                                                        <!-- 没有数据隐藏元素v-show v-if -->
+                                                        <!-- 主体区域 -->
+                                                        <section>
+                                                            <!-- 输入框 -->
+                                                            <header class="header">
+                                                                <input v-model="inputValue" autofocus="autofocus"
+                                                                       autocomplete="off"
+                                                                       placeholder="请输入法院" class="new-todo"
+                                                                       @keyup.enter="causeadd" id="placeholder"
+                                                                       name="todos">
+
+                                                            </header>
+                                                            <!-- 列表区域 -->
+                                                            <section class="main">
+                                                                <ul class="todo-list">
+                                                                    <li class="todo" v-for="(item,index) in courtlist"
+                                                                        :key="item.index">
+                                                                        <div class="view">
+                                                                            {% verbatim myblock %}<!--
+                                                                                  因为vue的插值表达式和django的产生冲突
+                                                                                --><!--
+                                                                                <span class="index">{{ index }}</span>
+                                                                                -->
+                                                                                <label>{{ item }}</label>
+                                                                            {% endverbatim myblock %}
+                                                                            <button class="destroy"
+                                                                                    @click="courtremove(index)"></button>
+                                                                        </div>
+                                                                    </li>
+                                                                </ul>
+                                                            </section>
+                                                            <!-- 统计和清空 -->
+                                                            <footer class="footer">
+                                                        <span class="todo-count" v-show="courtlist.length!=0">
+                                                            <strong>{{ courtlist.length }}</strong> 请注意添加的是法院.
+                                                        </span>
+                                                                {#                                                                <button v-show="adjlist.length!=0" class="clear-completed"#}
+                                                                {#                                                                        @click="clear">#}
+                                                                {#                                                                    Clear#}
+                                                                {#                                                                </button>#}<!--  暂时先关掉-->
+                                                            </footer>
+                                                        </section>
+                                                        <!-- 底部 -->
+                                                        <footer class="info">
+                                                        </footer>
+                                                    </div>
+                                                </div>
+                                                <div class="tab-pane fade" id="victim">
+                                                    {% for victimtemp in 被害人 %}
+                                                        <input type="checkbox" name="victims" checked="checked"
+                                                               id="victims"
+                                                               value={{ victimtemp }}/>
+                                                        {{ victimtemp }}<br/>
+                                                    {% endfor %}
+                                                    <div id="Addvictim">
+                                                        <!-- 新增 -->
+                                                        <!-- 1生成列表结构v-for
+                                                        2获取用户输入v-model
+                                                        3回车新增数据v-on enter添加数据 -->
+                                                        <!-- 删除 -->
+                                                        <!-- 1点击删除指定内容v-on splice -->
+                                                        <!-- 统计 -->
+                                                        <!-- 统计信息个数v-text length -->
+                                                        <!-- 清除 -->
+                                                        <!-- 点击清除所有信息清空数组 -->
+                                                        <!-- 隐藏 -->
+                                                        <!-- 没有数据隐藏元素v-show v-if -->
+                                                        <!-- 主体区域 -->
+                                                        <section>
+                                                            <!-- 输入框 -->
+                                                            <header class="header">
+                                                                <input v-model="inputValue" autofocus="autofocus"
+                                                                       autocomplete="off"
+                                                                       placeholder="请输入被害人" class="new-todo"
+                                                                       @keyup.enter="causeadd" id="placeholder"
+                                                                       name="todos">
+
+                                                            </header>
+                                                            <!-- 列表区域 -->
+                                                            <section class="main">
+                                                                <ul class="todo-list">
+                                                                    <li class="todo" v-for="(item,index) in victimlist"
+                                                                        :key="item.index">
+                                                                        <div class="view">
+                                                                            {% verbatim myblock %}<!--
+                                                                                  因为vue的插值表达式和django的产生冲突
+                                                                                --><!--
+                                                                                <span class="index">{{ index }}</span>
+                                                                                -->
+                                                                                <label>{{ item }}</label>
+                                                                            {% endverbatim myblock %}
+                                                                            <button class="destroy"
+                                                                                    @click="victimremove(index)"></button>
+                                                                        </div>
+                                                                    </li>
+                                                                </ul>
+                                                            </section>
+                                                            <!-- 统计和清空 -->
+                                                            <footer class="footer">
+                                                        <span class="todo-count" v-show="victimlist.length!=0">
+                                                            <strong>{{ victimlist.length }}</strong> 请注意添加的是被害人.
+                                                        </span>
+                                                                {#                                                                <button v-show="adjlist.length!=0" class="clear-completed"#}
+                                                                {#                                                                        @click="clear">#}
+                                                                {#                                                                    Clear#}
+                                                                {#                                                                </button>#}<!--  暂时先关掉-->
+                                                            </footer>
+                                                        </section>
+                                                        <!-- 底部 -->
+                                                        <footer class="info">
+                                                        </footer>
+                                                    </div>
+                                                </div>
+
+                                                <div class="tab-pane fade" id="date">
+                                                    <input type="checkbox" name="courttime" checked="checked"
+                                                           id="courttime"
+                                                           value={{ 审判时间 }}/>
+                                                    {{ 审判时间 }}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!--     可以参考https://convertio.co/zh/                -->
+
+
+        <!--
+        <div class="col-md-10">
+
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Panel title</h3>
+                </div>
+                <div class="panel-body">
+
+                </div>
+            </div>
+        </div>
+        -->
+
+    </div>
+    <footer style="text-align: center">©2022 CZY队 | 法律声明 | 隐私条款</footer>
+</div>
+
+<!-- 先引入jquery -->
+{#<script src="/static/jquery-1.7.2/jquery-1.7.2/jquery.min.js"></script>#}
+<!--  在head已经引入了一遍了，所以不需要再引入了吧 -->
+<!--    原来引入的是fileSaver            -->
+<script src="/static/FileSaver.js-master/FileSaver.js-master/dist/FileSaver.min.js"></script>
+<script src="/static/js/vue.js"></script>
+<script src="/static/element/element.js"></script>
+<!-- 引入样式 -->
+<link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+<!-- 引入组件库 -->
+<script src="https://unpkg.com/element-ui/lib/index.js"></script>
+<script>
+    $(function () {
+        // 点击自定义的span标签触发input标签的点击事件
+        $('#file-input-trigger').on('click', function () {
+            $('.upload-btn').trigger('click')
+        })
+        // 文件改变时 将文件名称显示到p元素中
+        $('.upload-btn').on('change', function (event) {
+            let fileName = '已选文件：' + event.target.files[0].name
+            $('.file-name').text(fileName)
+        })
+
+    })
+</script>
+
+<script>
+    const app = new Vue({
+            el: '#root',
+            data() {
+                return {
+                    adjlist: ["清楚"],
+                    verblist: ["强奸"],
+                    causelist: ["盗窃"],
+                    courtlist: ["北京市高级人民法院"],
+                    victimlist: [],
+                    inputValue: '请于此输入还需添加的词'
+                }
+            },
+            methods: {
+                adjadd() {
+                    this.adjlist.push(this.inputValue)
+                },
+                adjremove(index) {
+                    this.adjlist.splice(index, 1)
+                }, verbadd() {
+                    this.verblist.push(this.inputValue)
+                },
+                verbremove(index) {
+                    this.verblist.splice(index, 1)
+                }, causeadd() {
+                    this.causelist.push(this.inputValue)
+                },
+                causeremove(index) {
+                    this.causelist.splice(index, 1)
+                }, courtadd() {
+                    this.courtlist.push(this.inputValue)
+                },
+                courtremove(index) {
+                    this.courtlist.splice(index, 1)
+                }, victimadd() {
+                    this.victimlist.push(this.inputValue)
+                },
+                victimremove(index) {
+                    this.victimlist.splice(index, 1)
+                },
+
+
+                postAdd() {
+                    let param = new URLSearchParams()
+                    param.append('Add形容词', this.adjlist)
+                    param.append('Add动词', this.verblist)
+                    param.append('Add案由', this.causelist)
+                    param.append('Add法院', this.courtlist)
+                    param.append('Add受害人', this.victimlist)
+                    axios({
+                        method: 'post',
+                        url: '/upload/',
+                        data: param
+                    }).then(function (res) {
+                        console.log("正常运行");
+                    }).catch(function (error) { // 请求失败处理
+                        console.log(error);
+                    })
+                    ;
+                },
+                /**
+                 sleep(time) {
+                    let startTime = new Date().getTime() + parseInt(time, 10);
+                    while (new Date().getTime() < startTime) {
+                    }
+                },
+                 **/
+                /**
+                 handleClick() {
+                    {#this.sleep(10000);#}
+                    alert("本地存储按钮")
+                    let data;
+                    $.ajax({
+                        url: '/static/after.json',
+                        type: "get",
+                        //data:{action:'js_type',tid:{$tid},cid:{$cid},ccid:{$ccid}},
+                        async: false,
+                        success: function (jsondata) {
+                            data = jsondata;
+                        },
+                        error: function () {
+                            console.log("数据读取错误")
+                        }
+                    });
+
+                     const data = {
+                    犯罪嫌疑人: "",
+                    性别: ""
+                }
+                     $.getJSON('D:\\PycharmProjects\\djangoProject\\after.json', function (jsondata) {
+                    alert(jsondata.犯罪嫌疑人)
+                    data.犯罪嫌疑人 = jsondata.犯罪嫌疑人
+                    data.性别 = jsondata.性别
+                })
+
+                    const blob = new Blob([JSON.stringify(data)], {type: 'text/json'});
+                    saveAs(blob, "save.json");
+                },**/
+                savelocally() {
+                    let temp犯罪嫌疑人 = $('#defendent').val().substring(0, $('#defendent').val().length - 1);
+                    if (!document.getElementById("defendent").checked) {
+                        temp犯罪嫌疑人 = ""
+                    }
+                    let temp性别 = $('#gender').val().substring(0, $('#gender').val().length - 1);
+                    let temp出生地 = $('#place').val().substring(0, $('#place').val().length - 1);
+                    let temp出生年月 = $('#time').val().substring(0, $('#time').val().length - 1);
+                    let temp民族 = $('#nation').val().substring(0, $('#nation').val().length - 1);
+                    let temp审判时间 = $('#courttime').val().substring(0, $('#courttime').val().length - 1);
+                    //暂时没有支持不选的功能，没有想到比较好的办法
+
+                    let temp形容词 = new Array();
+                    let cnt = 0;
+                    $('#adj').children("#adjs").each(function (key, value) {
+                        if ($(value).is(":checked"))
+                            temp形容词[cnt++] = $(value).val().substring(0, $(value).val().length - 1)
+                    });
+                    //https://www.cnblogs.com/dayaodao/p/5620134.html 获取所有checked的value
+                    let temp动词 = new Array();
+                    cnt = 0;
+                    $('#verb').children("#verbs").each(function (key, value) {
+                        if ($(value).is(":checked"))
+                            temp动词[cnt++] = $(value).val().substring(0, $(value).val().length - 1)
+                    });
+                    let temp案由 = new Array();
+                    cnt = 0;
+                    $('#cause').children("#causes").each(function (key, value) {
+                        if ($(value).is(":checked"))
+                            temp案由[cnt++] = $(value).val().substring(0, $(value).val().length - 1)
+                    });
+                    let temp法院 = new Array();
+                    cnt = 0;
+                    $('#court').children("#courts").each(function (key, value) {
+                        if ($(value).is(":checked"))
+                            temp法院[key] = $(value).val().substring(0, $(value).val().length - 1)
+                    });
+                    let temp被害人 = new Array();
+                    cnt = 0;
+                    $('#victim').children("#victims").each(function (key, value) {
+                        if ($(value).is(":checked"))
+                            temp被害人[key] = $(value).val().substring(0, $(value).val().length - 1)
+                    });
+                    let datatxt = $('#devalue').val().replace(new RegExp("\n", "gm"), "\r\n");
+
+                    let data = {
+                        "犯罪嫌疑人": temp犯罪嫌疑人,
+                        "性别": temp性别,
+                        "出生地": temp出生地,
+                        "出生年月": temp出生年月,
+                        "民族": temp民族,
+                        "形容词": temp形容词 + this.adjlist,
+                        "动词": temp动词 + this.verblist,
+                        "案由": temp案由 + this.causelist,
+                        "法院": temp法院 + this.courtlist,
+                        "审判时间": temp审判时间,
+                        "被害人": temp被害人 + this.victimlist
+                    }
+                    const blob = new Blob([JSON.stringify(data)], {type: 'text/json'});
+                    saveAs(blob, "exportAsJson.json");
+                    let blobdocx = new Blob([datatxt], {type: "text/plain;charset=utf-8"});
+                    saveAs(blobdocx, "exportAsdocx.docx");
+                    let blobtxt = new Blob([datatxt], {type: "text/plain;charset=utf-8"});
+                    saveAs(blobtxt, "exportAstxt.txt");
+
+                },
+
+                /**
+                 deal() {
+                    alert("保存按钮")
+                    $.ajax({
+                        url: "",
+                        type: "POST",
+                        data: {
+                            "犯罪嫌疑人": $('#defendent').val(),
+                            "性别":$('#gender').val(),
+                            },
+                        success: function () {
+                            console.log("成功了");
+                        }
+                    })
+                }**/
+
+            }
+        })
+    ;
+</script><!--   Vue-->
+
+</body>
+</html>

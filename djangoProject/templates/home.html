@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>βcourt | 助力智能法院</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
+    <link rel="shortcut icon" href="/static/icon/github15.ico">
+    <link rel="stylesheet" href="/static/iconfont/Github/iconfont.css">
+    <link rel="stylesheet" href="/static/iconfont/court/iconfont.css">
+    <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+    <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+    <script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+{#    <script src="/static/js/echarts.min.js"></script>#}
+    <script src="/static/js/echarts.min5.0.js"></script>
+    <script src="/static/js/ecStat.js"></script>
+    <script src="/static/js/echarts-wordcloud.min.js"></script>
+    {#    <script type="text/javascript" src="/static/js/ecStat.js"></script>#}
+
+    {#    <script src="/static/html/common/vue.min.js"></script>#}
+    {#	<script src="/static/html/template/element-ui/lib/index.js"></script>#}
+    {#	<link rel="stylesheet" href="/static/html/template/element-ui/lib/theme-chalk/index.css">#}
+
+    <script src="/static/js/vue.js"></script>
+    <link rel="stylesheet" href="/static/element/element.css"/>
+    <script src="/static/element/element.js"></script>
+    {#    element-ui是cdn引入，vue也必须是cdn引入，并且vue的引入必须在element-ui以前，由于element-ui是基于vue书写的。#}
+
+
+    <!--
+        本来要用模板的继承，但是碍于不好实现
+    -->
+</head>
+<body>
+<div class="container">
+    <div class="col-md-12 ">
+        <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                            data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">
+                        <span class="iconfont icon-fayuan"></span>
+                        裁判文书标注系统</a>
+                </div>
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href=/home/>首页 <span class="sr-only">(current)</span></a></li>
+                        <li><a href=/search/>搜索</a></li>
+                        <li><a href=/upload/>在线分词</a></li>
+                        <li><a href=/demo/>Demo</a></li>
+                        <li><a href=/readme/>Readme</a></li>
+
+
+                        <!--
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                               aria-haspopup="true" aria-expanded="false">下拉框 <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">动作1</a></li>
+                                <li><a href="#">动作2</a></li>
+                                <li><a href="#">动作3</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="#">链接1</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="#">链接2</a></li>
+                            </ul>
+                        </li>
+                        -->
+                    </ul>
+                    <!--
+                    <form class="navbar-form navbar-left">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="搜索数据库中裁判文书">
+                        </div>
+                        <button type="submit" class="btn btn-default">搜索</button>
+                    </form>
+                    -->
+
+
+                </div><!-- /.navbar-collapse -->
+            </div><!-- /.container-fluid -->
+        </nav>
+
+        <div class="jumbotron">
+            <h1>Hello</h1>
+            <p>这是裁判文书标注系统，欢迎愉快使用</p>
+            <p><a class="btn btn-primary btn-lg" href="https://github.com/Suzcer/susu-gif" role="button">
+                Learn more @ <span class="iconfont icon-GitHub"></span></a>
+            </p>
+        </div>
+
+        {#        <el-container>#}
+        {#            <el-header>Header</el-header>#}
+        {#            <el-main>Main</el-main>#}
+        {#            <el-footer>Footer</el-footer>#}
+        {#        </el-container>#}
+
+
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <h5 class="page-header"></h5>
+        <div id="myechart1" style="width: 1000px;height:800px">
+        </div>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <h5 class="page-header"></h5>
+        <div id="myechart2" style="width: 1000px;height:800px">
+
+        </div>
+        <br/>
+        <br/>
+        <br/>
+        <h5 class="page-header"></h5>
+        {#        <div id="myechart3" style="width: 1000px;height:800px">#}
+        {##}
+        {#        </div>#}
+        <br/>
+        <br/>
+        <br/>
+        <h5 class="page-header"></h5>
+        <div id="myechart4" style="width: 1000px;height:800px">
+        </div>
+        <br/>
+        <br/>
+        <br/>
+        <h5 class="page-header"></h5>
+{#        <div id="myechart5" style="width: 1000px;height:800px">#}
+{#        </div>#}
+
+
+    </div>
+    <footer style="text-align: center">©2022 CZY队 | 法律声明 | 隐私条款</footer>
+</div>
+
+<script>
+
+    let chartDom = document.getElementById('myechart1');
+    let myChart = echarts.init(chartDom);
+    let option;
+    {#myChart.showLoading()#}
+
+
+    option = {
+        legend: {
+            top: 'bottom'
+        },
+        title: {
+            text: 'Chart01：犯罪嫌疑人随省份的分布'
+        },
+        toolbox: {
+            show: true,
+            feature: {
+                mark: {show: true},
+                dataView: {show: true, readOnly: false},
+                restore: {show: true},
+                saveAsImage: {show: true}
+            }
+        },
+        series: [
+            {
+                name: '地域分布',
+                type: 'pie',
+                radius: [50, 250],
+                center: ['50%', '50%'],
+                roseType: 'area',
+                itemStyle: {
+                    borderRadius: 8
+                },
+                label: {
+                    show: true,
+                    formatter: function (arg) {
+                        return "省份：" + arg.name + '\n人数：' + arg.value + '\n比例：' + arg.percent + "%"
+                    }
+                },
+
+                data: {{ obj|safe}}
+            }
+        ]
+    };
+    {#myChart.hideLoading()#}
+
+
+    option && myChart.setOption(option);
+
+</script>
+<script>
+    let chartDom02 = document.getElementById('myechart2');
+    let myChart02 = echarts.init(chartDom02);
+    let option02;
+
+    option02 = {
+        title: {
+            text: 'Chart02：性别-民族-出生年份-审判年份'
+        },
+        tooltip: {
+            trigger: 'item',
+            triggerOn: 'mousemove'
+        },
+        toolbox: {
+            show: true,
+            feature: {
+                mark: {show: true},
+                dataView: {show: true, readOnly: false},
+                restore: {show: true},
+                saveAsImage: {show: true}
+            }
+        },
+
+
+        series: [
+            {
+
+                label: {
+                    show: true,
+                    formatter: function (arg) {
+                        return arg.name
+                    }
+                },
+
+
+                type: 'sankey',
+                data: {{ nodes|safe }},
+                links: {{ links|safe }},
+                emphasis: {
+                    focus: 'adjacency'
+                },
+                levels: [
+                    {
+                        depth: 0,
+                        itemStyle: {
+                            color: '#fbb4ae'
+                        },
+                        lineStyle: {
+                            color: 'source',
+                            opacity: 0.6
+                        }
+                    },
+                    {
+                        depth: 1,
+                        itemStyle: {
+                            color: '#b3cde3'
+                        },
+                        lineStyle: {
+                            color: 'source',
+                            opacity: 0.6
+                        }
+                    },
+                    {
+                        depth: 2,
+                        itemStyle: {
+                            color: '#ccebc5'
+                        },
+                        lineStyle: {
+                            color: 'source',
+                            opacity: 0.6
+                        }
+                    },
+                    {
+                        depth: 3,
+                        itemStyle: {
+                            color: '#decbe4'
+                        },
+                        lineStyle: {
+                            color: 'source',
+                            opacity: 0.6
+                        }
+                    }
+                ],
+                lineStyle: {
+                    curveness: 0.5
+                }
+            }
+        ]
+    }
+
+    option02 && myChart02.setOption(option02);
+
+</script>
+<script>
+    let chartDom03 = document.getElementById('myechart3');
+    let myChart03 = echarts.init(chartDom03);
+    let option03;
+
+    option03 = {
+        title: [
+            {
+                text: 'Chart03：:柱状图'
+            }
+        ],
+        polar: {
+            radius: [30, '80%']
+        },
+        angleAxis: {
+            max: 4,
+            startAngle: 75
+        },
+        radiusAxis: {
+            type: 'category',
+            data: ['a', 'b', 'c', 'd']
+        },
+        tooltip: {},
+        series: {
+            type: 'bar',
+            data: [2, 1.2, 2.4, 3.6],
+            coordinateSystem: 'polar',
+            label: {
+                show: true,
+                position: 'middle',
+                formatter: '{b}: {c}'
+            }
+        }
+    };
+
+    option03 && myChart03.setOption(option03);
+</script>
+<script>
+    var chartDom04 = document.getElementById('myechart4');
+    var myChart04 = echarts.init(chartDom04);
+    var option04;
+
+    // prettier-ignore
+    let dataAxis = {{ causess|safe }};
+    // prettier-ignore
+    let data = {{ causessdata|safe }};
+    let yMax = 500;
+    let dataShadow = [];
+    for (let i = 0; i < data.length; i++) {
+        dataShadow.push(yMax);
+    }
+    option04 = {
+        title: {
+            text: 'Chart03：案由数量',
+            subtext: '注：一个案例可能涉及多个案由'
+        },
+        xAxis: {
+            data: dataAxis,
+            axisLabel: {
+                inside: true,
+                color: '#fff'
+            },
+            axisTick: {
+                show: false
+            },
+            axisLine: {
+                show: true
+            },
+            z: 10
+        },
+        yAxis: {
+            axisLine: {
+                show: false
+            },
+            axisTick: {
+                show: false
+            },
+            axisLabel: {
+                color: '#999'
+            }
+        },
+        dataZoom: [
+            {
+                type: 'inside'
+            }
+        ],
+        series: [
+            {
+                type: 'bar',
+                showBackground: true,
+                itemStyle: {
+                    color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+                        {offset: 0, color: '#83bff6'},
+                        {offset: 0.5, color: '#188df0'},
+                        {offset: 1, color: '#188df0'}
+                    ])
+                },
+                emphasis: {
+                    itemStyle: {
+                        color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+                            {offset: 0, color: '#2378f7'},
+                            {offset: 0.7, color: '#2378f7'},
+                            {offset: 1, color: '#83bff6'}
+                        ])
+                    }
+                },
+                data: data
+            }
+        ]
+    };
+    // Enable data zoom when user click bar.
+    const zoomSize = 6;
+    myChart.on('click', function (params) {
+        console.log(dataAxis[Math.max(params.dataIndex - zoomSize / 2, 0)]);
+        myChart.dispatchAction({
+            type: 'dataZoom',
+            startValue: dataAxis[Math.max(params.dataIndex - zoomSize / 2, 0)],
+            endValue:
+                dataAxis[Math.min(params.dataIndex + zoomSize / 2, data.length - 1)]
+        });
+    });
+
+    option04 && myChart04.setOption(option04);
+</script>
+<script>
+    var chartDom05 = document.getElementById('main');
+    var myChart05 = echarts.init(chartDom05);
+    var option05;
+
+    // See https://github.com/ecomfe/echarts-stat
+    echarts.registerTransform(ecStat.transform.regression);
+    const data05 = [
+        [96.24, 11.35],
+        [33.09, 85.11],
+        [57.6, 36.61],
+        [36.77, 27.26],
+        [20.1, 6.72],
+        [45.53, 36.37],
+        [110.07, 80.13],
+        [72.05, 20.88],
+        [39.82, 37.15],
+        [48.05, 70.5],
+        [0.85, 2.57],
+        [51.66, 63.7],
+        [61.07, 127.13],
+        [64.54, 33.59],
+        [35.5, 25.01],
+        [226.55, 664.02],
+        [188.6, 175.31],
+        [81.31, 108.68]
+    ];
+    option05 = {
+        dataset: [
+            {
+                source: data
+            },
+            {
+                transform: {
+                    type: 'ecStat:regression',
+                    config: {method: 'polynomial', order: 3}
+                }
+            }
+        ],
+        title: {
+            text: '18 companies net profit and main business income (million)',
+            subtext: 'By ecStat.regression',
+            sublink: 'https://github.com/ecomfe/echarts-stat',
+            left: 'center',
+            top: 16
+        },
+        tooltip: {
+            trigger: 'axis',
+            axisPointer: {
+                type: 'cross'
+            }
+        },
+        xAxis: {
+            splitLine: {
+                lineStyle: {
+                    type: 'dashed'
+                }
+            },
+            splitNumber: 20
+        },
+        yAxis: {
+            min: -40,
+            splitLine: {
+                lineStyle: {
+                    type: 'dashed'
+                }
+            }
+        },
+        series: [
+            {
+                name: 'scatter',
+                type: 'scatter'
+            },
+            {
+                name: 'line',
+                type: 'line',
+                smooth: true,
+                datasetIndex: 1,
+                symbolSize: 0.1,
+                symbol: 'circle',
+                label: {show: true, fontSize: 16},
+                labelLayout: {dx: -20},
+                encode: {label: 2, tooltip: 1}
+            }
+        ]
+    };
+
+    option05 && myChart05.setOption(option05);
+</script>
+
+</body>
+</html>
+

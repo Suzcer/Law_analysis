@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>form-page</title>
+    <link rel="shortcut icon" href="/static/icon/github21.ico">
+    <link rel="stylesheet" href="/static/element/element.css"/>
+    <link rel="stylesheet" href="/static/css/index.css"/>
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+
+
+</head>
+<body>
+<div id="root">
+    <el-form ref="form" :model="form" label-width="80px" size="mini">
+        <el-form-item label="时间区间">
+            <el-row>
+                <el-col :span="16">
+                    <el-date-picker
+                            v-model="form.dateTimeRangeValue"
+                            type="datetimerange"
+                            :picker-options="pickerOptions"
+                            range-separator="至"
+                            start-placeholder="开始日期"
+                            end-placeholder="结束日期"
+                            align="right">
+                    </el-date-picker>
+                </el-col>
+                <el-col :span="4">
+                    <el-button @click="search">搜索案件</el-button>
+                </el-col>
+                <el-col :span="4">
+                    <el-button @click="uload">上传案例</el-button>
+                </el-col>
+            </el-row>
+        </el-form-item>
+        <el-form-item label="案件内容">
+            <el-input
+                    type="textarea"
+                    placeholder="请确保您输入的是标准的刑事案件裁判文书，否则可能影响结果"
+                    autosize
+                    v-model="原文"
+            >
+            </el-input>
+            <el-button type="primary" @click="divide">
+                确认
+            </el-button>
+        </el-form-item>
+    </el-form>
+    <el-tabs type="border-card">
+
+
+        <el-tab-pane label="个人信息">
+            <el-checkbox @change="(checked)=>handleClientClick('性别',null,checked)">
+                {{ 性别 }}
+            </el-checkbox>
+
+
+        </el-tab-pane>
+        <!--
+    <el-tab-pane label="被害人">
+      <el-checkbox v-if="被害人" @change="(checked)=>handleClientClick('被害人',null,checked)">{{被害人}}</el-checkbox>
+    </el-tab-pane>
+    -->
+        <el-tab-pane label="被害人">
+            <el-checkbox-group v-model="checkedOptions.client" v-if=" 被害人.length">
+                <el-checkbox v-for="i in 被害人" :label="i" :key="i"
+                             @change="(checked)=>handleClientClick('动词',i,checked)">
+                    {{ i }}
+                </el-checkbox>
+            </el-checkbox-group>
+        </el-tab-pane>
+
+        <el-tab-pane label="动词">
+            <el-checkbox-group v-model="checkedOptions.client" v-if=" 动词.length">
+                <el-checkbox v-for="i in 动词" :label="i" :key="i" @change="(checked)=>handleClientClick('动词',i,checked)">
+                    {{ i }}
+                </el-checkbox>
+            </el-checkbox-group>
+        </el-tab-pane>
+
+        <el-tab-pane label="形容词">
+            <el-checkbox-group v-model="checkedOptions.client" v-if="形容词.length">
+                <el-checkbox v-for="i in 形容词" :label="i" :key="i"
+                             @change="(checked)=>handleClientClick('形容词',i,checked)">
+                    {{ i }}
+                </el-checkbox>
+            </el-checkbox-group>
+        </el-tab-pane>
+
+        <el-tab-pane label="案由">
+            <el-checkbox-group v-model="checkedOptions.client" v-if=" 案由.length">
+                <el-checkbox v-for="i in 案由" :label="i" :key="i" @change="(checked)=>handleClientClick('案由',i,checked)">
+                    {{ i }}
+                </el-checkbox>
+            </el-checkbox-group>
+        </el-tab-pane>
+        <el-tab-pane label="法院">
+            <el-checkbox-group v-model="checkedOptions.client" v-if="法院.length">
+                <el-checkbox v-for="i in 法院" :label="i" :key="i" @change="(checked)=>handleClientClick('法院',i,checked)">
+                    {{ i }}
+                </el-checkbox>
+            </el-checkbox-group>
+        </el-tab-pane>
+    </el-tabs>
+    <el-row type="flex" justify="end" style="margin-top: 20px">
+        <el-button type="primary" @click="handleClick">
+            保存至本地
+        </el-button>
+        <button type="button" class="btn btn-default btn-lg">
+            <span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span> 本地保存
+        </button>
+        <el-button type="primary" @click="submitTODB(id)">
+            提交至数据库
+        </el-button>
+    </el-row>
+</div>
+</body>
+<script src="https://cdn.bootcss.com/FileSaver.js/2014-11-29/FileSaver.js"></script>
+<script src="/static/js/vue.js"></script>
+<script src="/static/element/element.js"></script>
+<script src="/static/db.js"></script>
+<script src="/static/js/axios.js"></script>
+
+<script>
+
+    let app = new Vue({
+        el: '#root',
+        data() {
+            return {
+                form: {
+                    dateTimeRangeValue: [new Date(), new Date()],
+                },
+                pickerOptions: {
+                    shortcuts: [{
+                        text: '最近一周',
+                        onClick(picker) {
+                            const end = new Date();
+                            const start = new Date();
+                            start.setTime(start.getTime() - 3600 * 1000 * 24 * 7);
+                            picker.$emit('pick', [start, end]);
+                        }
+                    }, {
+                        text: '最近一个月',
+                        onClick(picker) {
+                            const end = new Date();
+                            const start = new Date();
+                            start.setTime(start.getTime() - 3600 * 1000 * 24 * 30);
+                            picker.$emit('pick', [start, end]);
+                        }
+                    }, {
+                        text: '最近三个月',
+                        onClick(picker) {
+                            const end = new Date();
+                            const start = new Date();
+                            start.setTime(start.getTime() - 3600 * 1000 * 24 * 90);
+                            picker.$emit('pick', [start, end]);
+                        }
+                    }]
+                },
+                //{#options: {},  现在是直接赋值#}
+                // 展示数据checkbox
+                犯罪嫌疑人: '',
+                性别: '',
+                民族: '',
+                出生地: '',
+                出生年月: '',
+                法院: [],
+                被害人: [],
+                动词: [],
+                形容词: [],
+                案由: [],
+                原文: '',
+                审判时间: '',
+                id: 0,
+                // 最终数据结果
+                checkedOptions: {
+                    client: [],
+                    犯罪嫌疑人: '',
+                    性别: '',
+                    民族: '',
+                    出生地: '',
+                    出生年月: '',
+                    法院: [],
+                    被害人: [],
+                    动词: [],
+                    形容词: [],
+                    案由: [],
+                    原文: '',
+                    审判时间: ''
+                }
+            }
+        },
+        methods: {
+            divide() {
+                alert("分词")
+            },
+            getdata() {
+                this.原文 = {{ querySet.vtext }}//暂时无法正常显示
+                    this.原文 = ""
+                this.犯罪嫌疑人 = {{ querySet.uname }}
+                    this.出生地 = {{ querySet.uplace }}
+                        this.是否累犯 = {{querySet.uisagain}}
+                            this.性别 = {{ querySet.ugender }}
+                                this.出生年月 = ""
+                this.民族 = {{ querySet.unation }}
+                    this.审判时间 = {{querySet.vtime}}
+                        this.形容词 = {{ vadj }}
+                            this.形容词 = ["你的", "w我"]
+                this.动词 = {{ vverb }}
+                    this.被害人 = {{ vvictim }}
+                        this.案由 = {{ vcause }}
+                            this.法院 = {{ vcourt }}
+                                this.id =
+                {{ querySet.id }}
+
+                /*
+            axios({
+                methods: 'GET',
+                url: 'http://localhost:3000/resource/1'
+            }).then(res => {
+                this.原文 = res.data.原文
+                this.犯罪嫌疑人 = res.data.犯罪嫌疑人
+                this.是否累犯 = res.data.是否累犯
+                this.出生地 = res.data.出生地
+                this.性别 = res.data.性别
+                this.出生年月 = res.data.出生年月
+                this.形容词 = res.data.形容词
+                this.动词 = res.data.动词
+                this.被害人 = res.data.被害人
+                this.案由 = res.data.案由
+                this.法院 = res.data.法院
+                this.民族 = res.data.民族
+                this.审判时间 = res.data.审判时间
+                this.id = res.data.id
+            })
+                 */
+            },
+            search() {
+                alert("搜索")
+            },
+            uload() {
+                alert("上传文件")
+            },
+            submitTODB() {
+                alert("提交到数据库")
+                //理解了axios的用意，进行页面的局部更新，而不是大规模的跳转之类的
+                axios({
+                    methods: "POST",
+                    url: 'http://localhost:3000/resource',
+                    data: {
+                        id: 3,
+                        原文: this.checkedOptions.原文,
+                        犯罪嫌疑人: this.checkedOptions.犯罪嫌疑人,
+                        是否累犯: this.checkedOptions.是否累犯,
+                        出生地: this.checkedOptions.出生地,
+                        性别: this.checkedOptions.性别,
+                        出生年月: this.checkedOptions.出生年月,
+                        形容词: this.checkedOptions.形容词,
+                        动词: this.checkedOptions.动词,
+                        被害人: this.checkedOptions.被害人,
+                        案由: this.checkedOptions.案由,
+                        法院: this.checkedOptions.法院,
+                        民族: this.checkedOptions.民族,
+                        审判时间: this.checkedOptions.审判时间,
+                    }
+                }).then(res => {
+                    console.log(res)
+                    alert("搞定")
+                })
+            },
+            handleClick() {
+                delete this.checkedOptions.client;
+                const data = {...this.checkedOptions}
+                const blob = new Blob([JSON.stringify(data)], {type: 'text/json'});
+                saveAs(blob, "save.json");
+            },
+            handleChangetext(text) {
+                this.checkedOptions.原文 = text
+                alert(this.checkedOptions.原文)
+            },
+            handleClientClick(key, val, checked) {
+                if (typeof this.checkedOptions[key] === 'string') {
+                    if (this.checkedOptions[key]) {
+                        this.checkedOptions[key] = '';
+                    } else {
+                        this.checkedOptions[key] = val;
+                    }
+                } else if (typeof this.checkedOptions[key] === 'boolean') {
+                    if (this.checkedOptions[key]) {
+                        this.checkedOptions[key] = false; // 这里在true和false默认了false
+                    } else {
+                        this.checkedOptions[key] = val;
+                    }
+                } else {
+                    if (this.checkedOptions[key].includes(val)) {
+                        this.checkedOptions[key] = this.checkedOptions[key].filter(i => i !== val)
+                    } else {
+                        this.checkedOptions[key].push(val)
+                    }
+                }
+
+                if (key === '性别') {
+                    checked ? this.checkedOptions.性别 = this.性别 : this.checkedOptions.性别 = ''
+                }
+                if (key === '民族') {
+                    checked ? this.checkedOptions.民族 = this.民族 : this.checkedOptions.民族 = ''
+                }
+                if (key === '出生地') {
+                    checked ? this.checkedOptions.出生地 = this.出生地 : this.checkedOptions.出生地 = ''
+                }
+            }
+        },
+        created: function () {
+            this.getdata()
+        }
+    });
+</script>
+</html>
