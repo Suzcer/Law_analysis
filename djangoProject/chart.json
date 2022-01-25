@@ -1,0 +1,1894 @@
+{
+    "nodes": [
+        {
+            "name": "1947"
+        },
+        {
+            "name": "回族"
+        },
+        {
+            "name": "维吾尔族"
+        },
+        {
+            "name": "1952"
+        },
+        {
+            "name": "1998"
+        },
+        {
+            "name": "藏族"
+        },
+        {
+            "name": "2016"
+        },
+        {
+            "name": "2170"
+        },
+        {
+            "name": "1970"
+        },
+        {
+            "name": "2019"
+        },
+        {
+            "name": "1960"
+        },
+        {
+            "name": "1968"
+        },
+        {
+            "name": "1965"
+        },
+        {
+            "name": "1957"
+        },
+        {
+            "name": "土家族"
+        },
+        {
+            "name": "1975"
+        },
+        {
+            "name": "1974"
+        },
+        {
+            "name": "1994"
+        },
+        {
+            "name": "汉族"
+        },
+        {
+            "name": "1995"
+        },
+        {
+            "name": "-2008"
+        },
+        {
+            "name": "蒙古族"
+        },
+        {
+            "name": "1976"
+        },
+        {
+            "name": "1989"
+        },
+        {
+            "name": "1967"
+        },
+        {
+            "name": "1991"
+        },
+        {
+            "name": "满族"
+        },
+        {
+            "name": "1997"
+        },
+        {
+            "name": "1979"
+        },
+        {
+            "name": "2013"
+        },
+        {
+            "name": "2021"
+        },
+        {
+            "name": "哈萨克族"
+        },
+        {
+            "name": "1966"
+        },
+        {
+            "name": "柯尔克孜族"
+        },
+        {
+            "name": "苗族"
+        },
+        {
+            "name": "壮族"
+        },
+        {
+            "name": "1956"
+        },
+        {
+            "name": "1973"
+        },
+        {
+            "name": "1961"
+        },
+        {
+            "name": "l958"
+        },
+        {
+            "name": "彝族"
+        },
+        {
+            "name": "1984"
+        },
+        {
+            "name": "1986"
+        },
+        {
+            "name": "1980"
+        },
+        {
+            "name": "1988"
+        },
+        {
+            "name": "1978"
+        },
+        {
+            "name": "2014"
+        },
+        {
+            "name": "2017"
+        },
+        {
+            "name": "男"
+        },
+        {
+            "name": "1971"
+        },
+        {
+            "name": "1981"
+        },
+        {
+            "name": "1985"
+        },
+        {
+            "name": "1983"
+        },
+        {
+            "name": "1990"
+        },
+        {
+            "name": "傣族"
+        },
+        {
+            "name": "1977"
+        },
+        {
+            "name": "1992"
+        },
+        {
+            "name": "1958"
+        },
+        {
+            "name": "1948"
+        },
+        {
+            "name": "1959"
+        },
+        {
+            "name": "2015"
+        },
+        {
+            "name": "女"
+        },
+        {
+            "name": "1964"
+        },
+        {
+            "name": "2020"
+        },
+        {
+            "name": "1972"
+        },
+        {
+            "name": "1987"
+        },
+        {
+            "name": "1982"
+        },
+        {
+            "name": "1963"
+        },
+        {
+            "name": "2018"
+        },
+        {
+            "name": "侗族"
+        },
+        {
+            "name": "拉祜族"
+        },
+        {
+            "name": "1996"
+        },
+        {
+            "name": "1962"
+        },
+        {
+            "name": "1969"
+        },
+        {
+            "name": "1993"
+        },
+        {
+            "name": "1954"
+        }
+    ],
+    "links": [
+        {
+            "source": "男",
+            "target": "汉族",
+            "value": 414
+        },
+        {
+            "source": "汉族",
+            "target": "1976",
+            "value": 12
+        },
+        {
+            "source": "1976",
+            "target": "2021",
+            "value": 2
+        },
+        {
+            "source": "汉族",
+            "target": "1980",
+            "value": 17
+        },
+        {
+            "source": "1980",
+            "target": "2021",
+            "value": 4
+        },
+        {
+            "source": "汉族",
+            "target": "1966",
+            "value": 10
+        },
+        {
+            "source": "1966",
+            "target": "2021",
+            "value": 1
+        },
+        {
+            "source": "汉族",
+            "target": "1989",
+            "value": 14
+        },
+        {
+            "source": "1989",
+            "target": "2021",
+            "value": 3
+        },
+        {
+            "source": "汉族",
+            "target": "1964",
+            "value": 7
+        },
+        {
+            "source": "1964",
+            "target": "2021",
+            "value": 3
+        },
+        {
+            "source": "男",
+            "target": "苗族",
+            "value": 4
+        },
+        {
+            "source": "苗族",
+            "target": "1986",
+            "value": 1
+        },
+        {
+            "source": "1986",
+            "target": "2021",
+            "value": 2
+        },
+        {
+            "source": "汉族",
+            "target": "1971",
+            "value": 15
+        },
+        {
+            "source": "1971",
+            "target": "2021",
+            "value": 3
+        },
+        {
+            "source": "汉族",
+            "target": "1973",
+            "value": 18
+        },
+        {
+            "source": "1973",
+            "target": "2021",
+            "value": 2
+        },
+        {
+            "source": "汉族",
+            "target": "1995",
+            "value": 3
+        },
+        {
+            "source": "1995",
+            "target": "2021",
+            "value": 1
+        },
+        {
+            "source": "汉族",
+            "target": "1967",
+            "value": 10
+        },
+        {
+            "source": "1967",
+            "target": "2021",
+            "value": 2
+        },
+        {
+            "source": "汉族",
+            "target": "1991",
+            "value": 8
+        },
+        {
+            "source": "1991",
+            "target": "2021",
+            "value": 1
+        },
+        {
+            "source": "苗族",
+            "target": "1980",
+            "value": 1
+        },
+        {
+            "source": "汉族",
+            "target": "1975",
+            "value": 10
+        },
+        {
+            "source": "1975",
+            "target": "2021",
+            "value": 1
+        },
+        {
+            "source": "汉族",
+            "target": "1969",
+            "value": 14
+        },
+        {
+            "source": "1969",
+            "target": "2021",
+            "value": 1
+        },
+        {
+            "source": "男",
+            "target": "彝族",
+            "value": 6
+        },
+        {
+            "source": "彝族",
+            "target": "1979",
+            "value": 1
+        },
+        {
+            "source": "1979",
+            "target": "2021",
+            "value": 1
+        },
+        {
+            "source": "汉族",
+            "target": "1981",
+            "value": 11
+        },
+        {
+            "source": "1981",
+            "target": "2021",
+            "value": 1
+        },
+        {
+            "source": "汉族",
+            "target": "1992",
+            "value": 10
+        },
+        {
+            "source": "1992",
+            "target": "2021",
+            "value": 1
+        },
+        {
+            "source": "汉族",
+            "target": "1987",
+            "value": 19
+        },
+        {
+            "source": "1987",
+            "target": "2021",
+            "value": 2
+        },
+        {
+            "source": "汉族",
+            "target": "1977",
+            "value": 18
+        },
+        {
+            "source": "1977",
+            "target": "2021",
+            "value": 3
+        },
+        {
+            "source": "汉族",
+            "target": "1972",
+            "value": 16
+        },
+        {
+            "source": "1972",
+            "target": "2021",
+            "value": 1
+        },
+        {
+            "source": "汉族",
+            "target": "1961",
+            "value": 2
+        },
+        {
+            "source": "1961",
+            "target": "2021",
+            "value": 1
+        },
+        {
+            "source": "汉族",
+            "target": "1959",
+            "value": 2
+        },
+        {
+            "source": "1959",
+            "target": "2021",
+            "value": 2
+        },
+        {
+            "source": "汉族",
+            "target": "1985",
+            "value": 11
+        },
+        {
+            "source": "1985",
+            "target": "2021",
+            "value": 1
+        },
+        {
+            "source": "汉族",
+            "target": "1986",
+            "value": 17
+        },
+        {
+            "source": "汉族",
+            "target": "1968",
+            "value": 8
+        },
+        {
+            "source": "1968",
+            "target": "2020",
+            "value": 1
+        },
+        {
+            "source": "汉族",
+            "target": "1982",
+            "value": 15
+        },
+        {
+            "source": "1982",
+            "target": "2021",
+            "value": 3
+        },
+        {
+            "source": "汉族",
+            "target": "1978",
+            "value": 13
+        },
+        {
+            "source": "1978",
+            "target": "2021",
+            "value": 3
+        },
+        {
+            "source": "汉族",
+            "target": "1998",
+            "value": 1
+        },
+        {
+            "source": "1998",
+            "target": "2021",
+            "value": 1
+        },
+        {
+            "source": "彝族",
+            "target": "1989",
+            "value": 1
+        },
+        {
+            "source": "男",
+            "target": "藏族",
+            "value": 3
+        },
+        {
+            "source": "藏族",
+            "target": "1982",
+            "value": 1
+        },
+        {
+            "source": "汉族",
+            "target": "1970",
+            "value": 17
+        },
+        {
+            "source": "1970",
+            "target": "2021",
+            "value": 2
+        },
+        {
+            "source": "男",
+            "target": "回族",
+            "value": 2
+        },
+        {
+            "source": "回族",
+            "target": "1970",
+            "value": 1
+        },
+        {
+            "source": "1968",
+            "target": "2021",
+            "value": 2
+        },
+        {
+            "source": "苗族",
+            "target": "1964",
+            "value": 1
+        },
+        {
+            "source": "汉族",
+            "target": "1974",
+            "value": 11
+        },
+        {
+            "source": "1974",
+            "target": "2021",
+            "value": 2
+        },
+        {
+            "source": "汉族",
+            "target": "1984",
+            "value": 18
+        },
+        {
+            "source": "1984",
+            "target": "2021",
+            "value": 1
+        },
+        {
+            "source": "彝族",
+            "target": "1980",
+            "value": 1
+        },
+        {
+            "source": "汉族",
+            "target": "1983",
+            "value": 14
+        },
+        {
+            "source": "1983",
+            "target": "2017",
+            "value": 1
+        },
+        {
+            "source": "1975",
+            "target": "2015",
+            "value": 3
+        },
+        {
+            "source": "1976",
+            "target": "2013",
+            "value": 1
+        },
+        {
+            "source": "1973",
+            "target": "2014",
+            "value": 5
+        },
+        {
+            "source": "汉族",
+            "target": "1979",
+            "value": 8
+        },
+        {
+            "source": "1979",
+            "target": "2014",
+            "value": 3
+        },
+        {
+            "source": "1969",
+            "target": "2017",
+            "value": 3
+        },
+        {
+            "source": "女",
+            "target": "汉族",
+            "value": 7
+        },
+        {
+            "source": "汉族",
+            "target": "1965",
+            "value": 9
+        },
+        {
+            "source": "1965",
+            "target": "2020",
+            "value": 1
+        },
+        {
+            "source": "1977",
+            "target": "2019",
+            "value": 2
+        },
+        {
+            "source": "男",
+            "target": "维吾尔族",
+            "value": 7
+        },
+        {
+            "source": "维吾尔族",
+            "target": "1970",
+            "value": 1
+        },
+        {
+            "source": "1970",
+            "target": "2014",
+            "value": 4
+        },
+        {
+            "source": "维吾尔族",
+            "target": "1991",
+            "value": 2
+        },
+        {
+            "source": "1991",
+            "target": "2015",
+            "value": 5
+        },
+        {
+            "source": "1972",
+            "target": "2019",
+            "value": 1
+        },
+        {
+            "source": "1982",
+            "target": "2016",
+            "value": 3
+        },
+        {
+            "source": "汉族",
+            "target": "1963",
+            "value": 3
+        },
+        {
+            "source": "1963",
+            "target": "2014",
+            "value": 2
+        },
+        {
+            "source": "汉族",
+            "target": "1988",
+            "value": 17
+        },
+        {
+            "source": "1988",
+            "target": "2018",
+            "value": 2
+        },
+        {
+            "source": "1964",
+            "target": "2017",
+            "value": 1
+        },
+        {
+            "source": "1974",
+            "target": "2019",
+            "value": 2
+        },
+        {
+            "source": "1968",
+            "target": "2019",
+            "value": 1
+        },
+        {
+            "source": "1987",
+            "target": "2016",
+            "value": 4
+        },
+        {
+            "source": "1979",
+            "target": "2016",
+            "value": 1
+        },
+        {
+            "source": "1972",
+            "target": "2015",
+            "value": 1
+        },
+        {
+            "source": "1967",
+            "target": "2014",
+            "value": 2
+        },
+        {
+            "source": "1982",
+            "target": "2019",
+            "value": 2
+        },
+        {
+            "source": "1975",
+            "target": "2018",
+            "value": 4
+        },
+        {
+            "source": "男",
+            "target": "柯尔克孜族",
+            "value": 2
+        },
+        {
+            "source": "柯尔克孜族",
+            "target": "1985",
+            "value": 1
+        },
+        {
+            "source": "1985",
+            "target": "2017",
+            "value": 3
+        },
+        {
+            "source": "1965",
+            "target": "2017",
+            "value": 1
+        },
+        {
+            "source": "男",
+            "target": "傣族",
+            "value": 1
+        },
+        {
+            "source": "傣族",
+            "target": "1986",
+            "value": 1
+        },
+        {
+            "source": "1986",
+            "target": "2013",
+            "value": 3
+        },
+        {
+            "source": "男",
+            "target": "土家族",
+            "value": 5
+        },
+        {
+            "source": "土家族",
+            "target": "1971",
+            "value": 1
+        },
+        {
+            "source": "1971",
+            "target": "2014",
+            "value": 1
+        },
+        {
+            "source": "1985",
+            "target": "2014",
+            "value": 3
+        },
+        {
+            "source": "1965",
+            "target": "2014",
+            "value": 2
+        },
+        {
+            "source": "1971",
+            "target": "2017",
+            "value": 1
+        },
+        {
+            "source": "1967",
+            "target": "2017",
+            "value": 1
+        },
+        {
+            "source": "1989",
+            "target": "2017",
+            "value": 2
+        },
+        {
+            "source": "汉族",
+            "target": "1990",
+            "value": 6
+        },
+        {
+            "source": "1990",
+            "target": "2015",
+            "value": 2
+        },
+        {
+            "source": "1974",
+            "target": "2015",
+            "value": 2
+        },
+        {
+            "source": "1990",
+            "target": "2016",
+            "value": 1
+        },
+        {
+            "source": "1992",
+            "target": "2018",
+            "value": 2
+        },
+        {
+            "source": "1966",
+            "target": "2015",
+            "value": 5
+        },
+        {
+            "source": "1986",
+            "target": "2014",
+            "value": 5
+        },
+        {
+            "source": "汉族",
+            "target": "1954",
+            "value": 1
+        },
+        {
+            "source": "1954",
+            "target": "2019",
+            "value": 1
+        },
+        {
+            "source": "1974",
+            "target": "2014",
+            "value": 1
+        },
+        {
+            "source": "1974",
+            "target": "2017",
+            "value": 2
+        },
+        {
+            "source": "1970",
+            "target": "2016",
+            "value": 3
+        },
+        {
+            "source": "汉族",
+            "target": "1996",
+            "value": 2
+        },
+        {
+            "source": "1996",
+            "target": "2019",
+            "value": 3
+        },
+        {
+            "source": "1978",
+            "target": "2017",
+            "value": 2
+        },
+        {
+            "source": "汉族",
+            "target": "1960",
+            "value": 3
+        },
+        {
+            "source": "1960",
+            "target": "2019",
+            "value": 1
+        },
+        {
+            "source": "1984",
+            "target": "2018",
+            "value": 4
+        },
+        {
+            "source": "1981",
+            "target": "2019",
+            "value": 3
+        },
+        {
+            "source": "1972",
+            "target": "2017",
+            "value": 4
+        },
+        {
+            "source": "1977",
+            "target": "2014",
+            "value": 5
+        },
+        {
+            "source": "1989",
+            "target": "2016",
+            "value": 2
+        },
+        {
+            "source": "1977",
+            "target": "2018",
+            "value": 3
+        },
+        {
+            "source": "彝族",
+            "target": "1968",
+            "value": 1
+        },
+        {
+            "source": "1967",
+            "target": "2013",
+            "value": 1
+        },
+        {
+            "source": "1981",
+            "target": "2016",
+            "value": 3
+        },
+        {
+            "source": "1986",
+            "target": "2016",
+            "value": 5
+        },
+        {
+            "source": "1988",
+            "target": "2014",
+            "value": 7
+        },
+        {
+            "source": "1972",
+            "target": "2016",
+            "value": 3
+        },
+        {
+            "source": "1964",
+            "target": "2015",
+            "value": 2
+        },
+        {
+            "source": "汉族",
+            "target": "1994",
+            "value": 7
+        },
+        {
+            "source": "1994",
+            "target": "2015",
+            "value": 1
+        },
+        {
+            "source": "男",
+            "target": "哈萨克族",
+            "value": 1
+        },
+        {
+            "source": "哈萨克族",
+            "target": "1974",
+            "value": 1
+        },
+        {
+            "source": "1974",
+            "target": "2016",
+            "value": 4
+        },
+        {
+            "source": "1989",
+            "target": "2018",
+            "value": 2
+        },
+        {
+            "source": "1985",
+            "target": "2015",
+            "value": 3
+        },
+        {
+            "source": "1960",
+            "target": "2017",
+            "value": 1
+        },
+        {
+            "source": "1985",
+            "target": "2018",
+            "value": 1
+        },
+        {
+            "source": "1989",
+            "target": "2014",
+            "value": 5
+        },
+        {
+            "source": "1970",
+            "target": "-2008",
+            "value": 1
+        },
+        {
+            "source": "1969",
+            "target": "2013",
+            "value": 2
+        },
+        {
+            "source": "1987",
+            "target": "2014",
+            "value": 5
+        },
+        {
+            "source": "1992",
+            "target": "2019",
+            "value": 2
+        },
+        {
+            "source": "汉族",
+            "target": "1993",
+            "value": 7
+        },
+        {
+            "source": "1993",
+            "target": "2015",
+            "value": 2
+        },
+        {
+            "source": "1971",
+            "target": "2019",
+            "value": 1
+        },
+        {
+            "source": "1991",
+            "target": "2014",
+            "value": 2
+        },
+        {
+            "source": "1995",
+            "target": "2017",
+            "value": 1
+        },
+        {
+            "source": "苗族",
+            "target": "1974",
+            "value": 1
+        },
+        {
+            "source": "1960",
+            "target": "2018",
+            "value": 1
+        },
+        {
+            "source": "1982",
+            "target": "2017",
+            "value": 4
+        },
+        {
+            "source": "1994",
+            "target": "2170",
+            "value": 1
+        },
+        {
+            "source": "1980",
+            "target": "2016",
+            "value": 4
+        },
+        {
+            "source": "1972",
+            "target": "2013",
+            "value": 2
+        },
+        {
+            "source": "1981",
+            "target": "2013",
+            "value": 1
+        },
+        {
+            "source": "汉族",
+            "target": "1957",
+            "value": 3
+        },
+        {
+            "source": "1957",
+            "target": "2014",
+            "value": 2
+        },
+        {
+            "source": "1969",
+            "target": "2016",
+            "value": 3
+        },
+        {
+            "source": "1961",
+            "target": "2019",
+            "value": 1
+        },
+        {
+            "source": "1983",
+            "target": "2014",
+            "value": 3
+        },
+        {
+            "source": "1983",
+            "target": "2019",
+            "value": 1
+        },
+        {
+            "source": "汉族",
+            "target": "l958",
+            "value": 1
+        },
+        {
+            "source": "l958",
+            "target": "2016",
+            "value": 1
+        },
+        {
+            "source": "1971",
+            "target": "2016",
+            "value": 5
+        },
+        {
+            "source": "1981",
+            "target": "2018",
+            "value": 2
+        },
+        {
+            "source": "1993",
+            "target": "2017",
+            "value": 3
+        },
+        {
+            "source": "1986",
+            "target": "2015",
+            "value": 2
+        },
+        {
+            "source": "汉族",
+            "target": "1962",
+            "value": 4
+        },
+        {
+            "source": "1962",
+            "target": "2016",
+            "value": 3
+        },
+        {
+            "source": "1983",
+            "target": "2016",
+            "value": 4
+        },
+        {
+            "source": "1988",
+            "target": "2019",
+            "value": 2
+        },
+        {
+            "source": "1976",
+            "target": "2018",
+            "value": 2
+        },
+        {
+            "source": "1987",
+            "target": "2019",
+            "value": 2
+        },
+        {
+            "source": "1989",
+            "target": "2015",
+            "value": 2
+        },
+        {
+            "source": "1983",
+            "target": "2013",
+            "value": 1
+        },
+        {
+            "source": "汉族",
+            "target": "1948",
+            "value": 1
+        },
+        {
+            "source": "1948",
+            "target": "2019",
+            "value": 1
+        },
+        {
+            "source": "汉族",
+            "target": "1952",
+            "value": 2
+        },
+        {
+            "source": "1952",
+            "target": "2014",
+            "value": 2
+        },
+        {
+            "source": "1980",
+            "target": "2014",
+            "value": 6
+        },
+        {
+            "source": "1965",
+            "target": "2016",
+            "value": 1
+        },
+        {
+            "source": "1976",
+            "target": "2017",
+            "value": 5
+        },
+        {
+            "source": "1984",
+            "target": "2014",
+            "value": 3
+        },
+        {
+            "source": "1992",
+            "target": "2016",
+            "value": 3
+        },
+        {
+            "source": "汉族",
+            "target": "1958",
+            "value": 2
+        },
+        {
+            "source": "1958",
+            "target": "2017",
+            "value": 1
+        },
+        {
+            "source": "1980",
+            "target": "2015",
+            "value": 1
+        },
+        {
+            "source": "1973",
+            "target": "2016",
+            "value": 2
+        },
+        {
+            "source": "1987",
+            "target": "2018",
+            "value": 5
+        },
+        {
+            "source": "藏族",
+            "target": "1991",
+            "value": 2
+        },
+        {
+            "source": "1991",
+            "target": "2017",
+            "value": 3
+        },
+        {
+            "source": "1978",
+            "target": "2014",
+            "value": 4
+        },
+        {
+            "source": "男",
+            "target": "蒙古族",
+            "value": 5
+        },
+        {
+            "source": "蒙古族",
+            "target": "1978",
+            "value": 1
+        },
+        {
+            "source": "1978",
+            "target": "2016",
+            "value": 1
+        },
+        {
+            "source": "1972",
+            "target": "2014",
+            "value": 4
+        },
+        {
+            "source": "1993",
+            "target": "2019",
+            "value": 2
+        },
+        {
+            "source": "1982",
+            "target": "2015",
+            "value": 1
+        },
+        {
+            "source": "1971",
+            "target": "2015",
+            "value": 1
+        },
+        {
+            "source": "1973",
+            "target": "2013",
+            "value": 3
+        },
+        {
+            "source": "1957",
+            "target": "2015",
+            "value": 1
+        },
+        {
+            "source": "1978",
+            "target": "2013",
+            "value": 2
+        },
+        {
+            "source": "1969",
+            "target": "2015",
+            "value": 3
+        },
+        {
+            "source": "1967",
+            "target": "2016",
+            "value": 2
+        },
+        {
+            "source": "1980",
+            "target": "2017",
+            "value": 1
+        },
+        {
+            "source": "蒙古族",
+            "target": "1973",
+            "value": 1
+        },
+        {
+            "source": "1973",
+            "target": "2015",
+            "value": 4
+        },
+        {
+            "source": "1983",
+            "target": "2018",
+            "value": 3
+        },
+        {
+            "source": "蒙古族",
+            "target": "1992",
+            "value": 1
+        },
+        {
+            "source": "1984",
+            "target": "2019",
+            "value": 4
+        },
+        {
+            "source": "1965",
+            "target": "2015",
+            "value": 2
+        },
+        {
+            "source": "1966",
+            "target": "2019",
+            "value": 1
+        },
+        {
+            "source": "1970",
+            "target": "2017",
+            "value": 2
+        },
+        {
+            "source": "1980",
+            "target": "2019",
+            "value": 1
+        },
+        {
+            "source": "男",
+            "target": "拉祜族",
+            "value": 1
+        },
+        {
+            "source": "拉祜族",
+            "target": "1996",
+            "value": 1
+        },
+        {
+            "source": "1990",
+            "target": "2019",
+            "value": 2
+        },
+        {
+            "source": "1984",
+            "target": "2016",
+            "value": 3
+        },
+        {
+            "source": "1975",
+            "target": "2014",
+            "value": 2
+        },
+        {
+            "source": "1964",
+            "target": "2018",
+            "value": 2
+        },
+        {
+            "source": "男",
+            "target": "满族",
+            "value": 5
+        },
+        {
+            "source": "满族",
+            "target": "1991",
+            "value": 1
+        },
+        {
+            "source": "土家族",
+            "target": "1970",
+            "value": 1
+        },
+        {
+            "source": "1970",
+            "target": "2013",
+            "value": 1
+        },
+        {
+            "source": "1971",
+            "target": "2018",
+            "value": 1
+        },
+        {
+            "source": "1971",
+            "target": "2013",
+            "value": 3
+        },
+        {
+            "source": "1968",
+            "target": "2014",
+            "value": 2
+        },
+        {
+            "source": "土家族",
+            "target": "1984",
+            "value": 1
+        },
+        {
+            "source": "1973",
+            "target": "2019",
+            "value": 2
+        },
+        {
+            "source": "1968",
+            "target": "2016",
+            "value": 1
+        },
+        {
+            "source": "1994",
+            "target": "2018",
+            "value": 1
+        },
+        {
+            "source": "男",
+            "target": "侗族",
+            "value": 1
+        },
+        {
+            "source": "侗族",
+            "target": "1993",
+            "value": 1
+        },
+        {
+            "source": "1986",
+            "target": "2017",
+            "value": 2
+        },
+        {
+            "source": "1976",
+            "target": "2014",
+            "value": 3
+        },
+        {
+            "source": "1977",
+            "target": "2015",
+            "value": 1
+        },
+        {
+            "source": "1966",
+            "target": "2018",
+            "value": 1
+        },
+        {
+            "source": "彝族",
+            "target": "1984",
+            "value": 2
+        },
+        {
+            "source": "1984",
+            "target": "2017",
+            "value": 2
+        },
+        {
+            "source": "1970",
+            "target": "2015",
+            "value": 2
+        },
+        {
+            "source": "土家族",
+            "target": "1969",
+            "value": 1
+        },
+        {
+            "source": "1966",
+            "target": "2014",
+            "value": 3
+        },
+        {
+            "source": "男",
+            "target": "壮族",
+            "value": 1
+        },
+        {
+            "source": "壮族",
+            "target": "1981",
+            "value": 1
+        },
+        {
+            "source": "1981",
+            "target": "2017",
+            "value": 2
+        },
+        {
+            "source": "1967",
+            "target": "2019",
+            "value": 2
+        },
+        {
+            "source": "1988",
+            "target": "2017",
+            "value": 2
+        },
+        {
+            "source": "1981",
+            "target": "2014",
+            "value": 1
+        },
+        {
+            "source": "1987",
+            "target": "2013",
+            "value": 2
+        },
+        {
+            "source": "满族",
+            "target": "1976",
+            "value": 2
+        },
+        {
+            "source": "1992",
+            "target": "2014",
+            "value": 3
+        },
+        {
+            "source": "维吾尔族",
+            "target": "1987",
+            "value": 1
+        },
+        {
+            "source": "汉族",
+            "target": "1956",
+            "value": 1
+        },
+        {
+            "source": "1956",
+            "target": "2015",
+            "value": 1
+        },
+        {
+            "source": "蒙古族",
+            "target": "1983",
+            "value": 1
+        },
+        {
+            "source": "1982",
+            "target": "2013",
+            "value": 1
+        },
+        {
+            "source": "1976",
+            "target": "2016",
+            "value": 1
+        },
+        {
+            "source": "1970",
+            "target": "2018",
+            "value": 3
+        },
+        {
+            "source": "1974",
+            "target": "2018",
+            "value": 1
+        },
+        {
+            "source": "1978",
+            "target": "2018",
+            "value": 1
+        },
+        {
+            "source": "1982",
+            "target": "2014",
+            "value": 1
+        },
+        {
+            "source": "1966",
+            "target": "2016",
+            "value": 1
+        },
+        {
+            "source": "1969",
+            "target": "2014",
+            "value": 1
+        },
+        {
+            "source": "1994",
+            "target": "2014",
+            "value": 1
+        },
+        {
+            "source": "1982",
+            "target": "2018",
+            "value": 1
+        },
+        {
+            "source": "汉族",
+            "target": "1997",
+            "value": 2
+        },
+        {
+            "source": "1997",
+            "target": "2019",
+            "value": 2
+        },
+        {
+            "source": "汉族",
+            "target": "1947",
+            "value": 1
+        },
+        {
+            "source": "1947",
+            "target": "2014",
+            "value": 1
+        },
+        {
+            "source": "1984",
+            "target": "2013",
+            "value": 1
+        },
+        {
+            "source": "1969",
+            "target": "2019",
+            "value": 1
+        },
+        {
+            "source": "土家族",
+            "target": "1974",
+            "value": 1
+        },
+        {
+            "source": "1980",
+            "target": "2018",
+            "value": 2
+        },
+        {
+            "source": "满族",
+            "target": "1966",
+            "value": 1
+        },
+        {
+            "source": "1977",
+            "target": "2170",
+            "value": 1
+        },
+        {
+            "source": "1995",
+            "target": "2019",
+            "value": 1
+        },
+        {
+            "source": "柯尔克孜族",
+            "target": "1976",
+            "value": 1
+        },
+        {
+            "source": "维吾尔族",
+            "target": "1986",
+            "value": 1
+        },
+        {
+            "source": "1986",
+            "target": "2019",
+            "value": 1
+        },
+        {
+            "source": "维吾尔族",
+            "target": "1985",
+            "value": 1
+        },
+        {
+            "source": "1990",
+            "target": "2014",
+            "value": 1
+        },
+        {
+            "source": "蒙古族",
+            "target": "1966",
+            "value": 1
+        },
+        {
+            "source": "1983",
+            "target": "2015",
+            "value": 2
+        },
+        {
+            "source": "1979",
+            "target": "2017",
+            "value": 1
+        },
+        {
+            "source": "1962",
+            "target": "2017",
+            "value": 1
+        },
+        {
+            "source": "1992",
+            "target": "2017",
+            "value": 1
+        },
+        {
+            "source": "1994",
+            "target": "2019",
+            "value": 2
+        },
+        {
+            "source": "1977",
+            "target": "2016",
+            "value": 2
+        },
+        {
+            "source": "1993",
+            "target": "2016",
+            "value": 1
+        },
+        {
+            "source": "1963",
+            "target": "2016",
+            "value": 1
+        },
+        {
+            "source": "1994",
+            "target": "2016",
+            "value": 1
+        },
+        {
+            "source": "1985",
+            "target": "2016",
+            "value": 2
+        },
+        {
+            "source": "1970",
+            "target": "2019",
+            "value": 2
+        },
+        {
+            "source": "1978",
+            "target": "2019",
+            "value": 1
+        },
+        {
+            "source": "1988",
+            "target": "2016",
+            "value": 3
+        },
+        {
+            "source": "维吾尔族",
+            "target": "1981",
+            "value": 1
+        },
+        {
+            "source": "1991",
+            "target": "2018",
+            "value": 1
+        },
+        {
+            "source": "1984",
+            "target": "2015",
+            "value": 3
+        },
+        {
+            "source": "满族",
+            "target": "1992",
+            "value": 1
+        },
+        {
+            "source": "1968",
+            "target": "2015",
+            "value": 1
+        },
+        {
+            "source": "1988",
+            "target": "2013",
+            "value": 1
+        },
+        {
+            "source": "1977",
+            "target": "2017",
+            "value": 1
+        },
+        {
+            "source": "1976",
+            "target": "2019",
+            "value": 1
+        },
+        {
+            "source": "1991",
+            "target": "2016",
+            "value": 1
+        },
+        {
+            "source": "1965",
+            "target": "2013",
+            "value": 2
+        },
+        {
+            "source": "1979",
+            "target": "2015",
+            "value": 1
+        },
+        {
+            "source": "1979",
+            "target": "2018",
+            "value": 1
+        },
+        {
+            "source": "1968",
+            "target": "2017",
+            "value": 1
+        },
+        {
+            "source": "1979",
+            "target": "2013",
+            "value": 1
+        },
+        {
+            "source": "1969",
+            "target": "2018",
+            "value": 1
+        },
+        {
+            "source": "回族",
+            "target": "1989",
+            "value": 1
+        },
+        {
+            "source": "1973",
+            "target": "2017",
+            "value": 1
+        },
+        {
+            "source": "1958",
+            "target": "2016",
+            "value": 1
+        }
+    ]
+}
